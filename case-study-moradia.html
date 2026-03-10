@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Estudo de caso de UX: como o design pode ajudar pessoas a encontrar colegas de quarto compatíveis no Brasil. Por Ian Silva Lanni." />
+  <title>Moradia Compartilhada — Ian Silva Lanni</title>
+  <link rel="icon" type="image/jpeg" href="assets/ian-silva-lanni-profile.jpg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#020d19',
+            orange: '#f97300',
+            'navy-mid': '#04182e',
+            'navy-light': '#1d3447',
+            'navy-card': '#243d54',
+            footer: '#404040',
+          },
+          fontFamily: {
+            serif: ['"Merriweather Sans"', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body { background-color: #020d19; }
+  </style>
+</head>
+<body class="bg-navy text-white font-sans min-h-screen">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-navy/90 backdrop-blur-sm border-b border-white/5">
+    <div class="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 text-white font-semibold text-sm hover:text-white/80 transition-colors">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Home
+        </a>
+      <div class="flex items-center gap-4">
+        <a href="https://linkedin.com/in/iansilvalanni" target="_blank" rel="noopener noreferrer" class="border border-white text-white p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SECTION 1: TL;DR CARD -->
+  <main class="pt-16 px-6 pb-24 max-w-[1200px] mx-auto">
+    <div class="rounded-2xl overflow-hidden bg-[#1d3447]">
+
+      <!-- Top row: 2 columns -->
+      <div class="grid grid-cols-1 lg:grid-cols-[2fr_1fr] divide-y lg:divide-y-0 lg:divide-x divide-white/10">
+
+        <!-- Left: TL;DR + headline -->
+        <div class="p-8 lg:p-10 flex flex-col gap-5">
+          <span class="bg-navy text-white text-xs font-semibold px-3 py-1 rounded-full w-fit">TL;DR</span>
+          <h1 class="font-serif font-bold text-2xl lg:text-3xl leading-snug">
+            Milhares de brasileiros dividem moradia, mas nenhuma plataforma ajuda a encontrar alguém compatível para morar junto.
+          </h1>
+          <p class="text-[#c8d8e8] text-base leading-relaxed">
+            As ferramentas que existem focam em imóvel, não em pessoa. E foi exatamente aí que a pesquisa mostrou onde o problema de verdade está.
+          </p>
+        </div>
+
+        <!-- Right: My Role -->
+        <div class="p-8 lg:p-10 flex flex-col gap-3">
+          <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Meu papel</span>
+          <h2 class="font-serif font-bold text-xl leading-snug">UX Research e UI Design</h2>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">
+            Participei da pesquisa e entrevistas com usuários, personas, jornadas, fluxo do usuário, modelo de negócio e wireframes.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Bottom row: 3 columns -->
+      <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10 bg-[#152b3e]">
+
+        <!-- Research Methods -->
+        <div class="p-8 lg:p-10 flex flex-col gap-3">
+          <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Métodos de pesquisa</span>
+          <h3 class="font-serif font-bold text-lg leading-snug">6 métodos, abordagem mista</h3>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">
+            Desk Research, Netnografia, Survey, Benchmark de Concorrentes, Matriz CSD e 7 entrevistas com usuários
+          </p>
+        </div>
+
+        <!-- The Solution -->
+        <div class="p-8 lg:p-10 flex flex-col gap-3">
+          <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">A solução</span>
+          <h3 class="font-serif font-bold text-lg leading-snug">Uma plataforma de moradia compartilhada pensada em compatibilidade primeiro</h3>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">
+            Um app que conecta pessoas por estilo de vida e hábitos, não só por preço e localização. Com mensagens nativas, questionário de compatibilidade e ferramentas para organizar a convivência.
+          </p>
+        </div>
+
+        <!-- Outcome -->
+        <div class="p-8 lg:p-10 flex flex-col gap-3">
+          <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Resultado</span>
+          <h3 class="font-serif font-bold text-lg leading-snug">A pesquisa mudou o rumo</h3>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">
+            A hipótese inicial era que dividir as contas era o maior problema. A pesquisa mostrou o contrário. Isso moldou um produto construído em torno de compatibilidade, não de custo.
+          </p>
+        </div>
+
+      </div>
+    </div>
+    <!-- SECTION 2: O PROBLEMA -->
+    <div class="mt-24 flex flex-col gap-20">
+
+      <!-- The Problem -->
+      <div class="flex flex-col gap-10">
+        <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">O problema</span>
+        <div class="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-10 lg:gap-16 items-start">
+
+          <!-- Left: text -->
+          <div class="flex flex-col gap-6">
+            <h2 class="font-serif font-bold text-3xl lg:text-4xl leading-snug">
+              Cada vez mais pessoas dividem moradia. Quase nenhuma ferramenta ajuda a fazer isso funcionar.
+            </h2>
+            <p class="text-[#c8d8e8] text-base leading-relaxed">
+              Nas grandes cidades brasileiras, o custo de vida alto está empurrando mais gente, especialmente jovens profissionais e estudantes, para a moradia compartilhada. Mas a experiência costuma ser caótica, emocionalmente desgastante e mal amparada pelas ferramentas que existem.
+            </p>
+            <p class="text-[#c8d8e8] text-base leading-relaxed">
+              O atrito real não é dividir a conta de luz. É encontrar alguém com quem dá pra conviver, e combinar as regras invisíveis da casa antes que o conflito apareça.
+            </p>
+          </div>
+
+          <!-- Right: insight card -->
+          <div class="bg-[#1d3447] rounded-xl p-7 flex flex-col gap-4">
+            <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Principal descoberta da pesquisa</span>
+            <p class="text-[#c8d8e8] text-sm leading-relaxed">
+              Ferramentas como o Splitwise resolvem a divisão de despesas. Mas a pesquisa confirmou que isso não é o problema central. O que realmente incomoda as pessoas é encontrar alguém compatível e lidar com conflitos de convivência. E nenhuma plataforma no Brasil endereça isso.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Research Approach -->
+      <div class="flex flex-col gap-10">
+        <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Abordagem de pesquisa</span>
+        <h2 class="font-serif font-bold text-3xl lg:text-4xl leading-snug max-w-xl">
+          Uma olhada em camadas na moradia compartilhada no Brasil.
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+          <!-- Desk Research -->
+          <div class="flex flex-col gap-3">
+            <h3 class="font-serif font-bold text-lg">Desk Research</h3>
+            <p class="text-[#c8d8e8] text-sm leading-relaxed">
+              Mapeamos o mercado de coliving brasileiro, incluindo players como Yuca, Uliving e KASA. Analisamos artigos, reportagens e estudos sobre as dimensões financeiras e emocionais da moradia compartilhada.
+            </p>
+            <span class="mt-1 bg-[#0f3d2e] text-[#4ade80] text-xs font-semibold px-3 py-1 rounded-full w-fit uppercase tracking-wide">Pesquisa secundária</span>
+          </div>
+
+          <!-- Netnografia -->
+          <div class="flex flex-col gap-3">
+            <h3 class="font-serif font-bold text-lg">Netnografia</h3>
+            <p class="text-[#c8d8e8] text-sm leading-relaxed">
+              Mergulhamos em comunidades online onde brasileiros falam sobre busca de colega de quarto: Reddit, grupos no Facebook, Twitter. Capturamos a linguagem real, as reclamações que se repetiam e os critérios que as pessoas usam pra avaliar candidatos.
+            </p>
+            <span class="mt-1 bg-[#0f3d2e] text-[#4ade80] text-xs font-semibold px-3 py-1 rounded-full w-fit uppercase tracking-wide">Etnografia digital</span>
+          </div>
+
+          <!-- Survey -->
+          <div class="flex flex-col gap-3">
+            <h3 class="font-serif font-bold text-lg">Survey</h3>
+            <p class="text-[#c8d8e8] text-sm leading-relaxed">
+              Aplicamos um questionário quantitativo para validar hipóteses iniciais. Os resultados foram usados para revisar a Matriz CSD, transformando suposições em certezas ou refinando perguntas para as entrevistas.
+            </p>
+            <span class="mt-1 bg-[#0f3d2e] text-[#4ade80] text-xs font-semibold px-3 py-1 rounded-full w-fit uppercase tracking-wide">Pesquisa quantitativa</span>
+          </div>
+
+          <!-- Benchmark de Concorrentes -->
+          <div class="flex flex-col gap-3">
+            <h3 class="font-serif font-bold text-lg">Benchmark de Concorrentes</h3>
+            <p class="text-[#c8d8e8] text-sm leading-relaxed">
+              Avaliamos 10 plataformas, diretas e indiretas, em relação aos problemas que o survey confirmou. Mapeamos funcionalidades de compatibilidade, filtros por perfil e disponibilidade no Brasil para identificar onde o mercado falha.
+            </p>
+            <span class="mt-1 bg-[#0f3d2e] text-[#4ade80] text-xs font-semibold px-3 py-1 rounded-full w-fit uppercase tracking-wide">Análise de concorrência</span>
+          </div>
+
+          <!-- Matriz CSD -->
+          <div class="flex flex-col gap-3">
+            <h3 class="font-serif font-bold text-lg">Matriz CSD</h3>
+            <p class="text-[#c8d8e8] text-sm leading-relaxed">
+              Estruturamos o conhecimento da equipe em Certezas, Suposições e Dúvidas antes de ir a campo. Revisamos tudo à medida que os resultados do survey chegavam, marcando quais dúvidas precisavam ser exploradas nas entrevistas.
+            </p>
+            <span class="mt-1 bg-[#0f3d2e] text-[#4ade80] text-xs font-semibold px-3 py-1 rounded-full w-fit uppercase tracking-wide">Síntese colaborativa</span>
+          </div>
+
+          <!-- Entrevistas com Usuários -->
+          <div class="flex flex-col gap-3">
+            <h3 class="font-serif font-bold text-lg">Entrevistas com Usuários</h3>
+            <p class="text-[#c8d8e8] text-sm leading-relaxed">
+              Conduzi entrevistas qualitativas em profundidade guiadas pelas dúvidas da Matriz CSD, com foco na experiência emocional de morar com desconhecidos, nas dinâmicas de conflito e em como as pessoas escolhem um colega de quarto.
+            </p>
+            <span class="mt-1 bg-[#0f3d2e] text-[#4ade80] text-xs font-semibold px-3 py-1 rounded-full w-fit uppercase tracking-wide">Pesquisa primária</span>
+          </div>
+
+        </div>
+      </div>
+
+    <!-- SECTION 3: MATRIZ CSD -->
+    <div class="mt-24 flex flex-col gap-10">
+
+      <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Matriz CSD</span>
+
+      <div class="flex flex-col gap-6 max-w-2xl">
+        <h2 class="font-serif font-bold text-3xl lg:text-4xl leading-snug">
+          O que sabíamos, o que achávamos e o que precisávamos descobrir.
+        </h2>
+        <p class="text-[#c8d8e8] text-base leading-relaxed">
+          Antes de qualquer trabalho de campo, estruturamos o conhecimento existente da equipe em três colunas. A mais importante é a última: as Dúvidas. São as perguntas que a pesquisa secundária e a netnografia não conseguiram responder, e que viraram o roteiro direto para as entrevistas com usuários.
+        </p>
+      </div>
+
+      <!-- 3 cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Certezas -->
+        <div class="bg-[#2d5a27] rounded-xl p-7 flex flex-col gap-5">
+          <span class="text-green-200 text-xs uppercase tracking-widest font-medium">Certezas</span>
+          <h3 class="font-serif font-bold text-xl leading-snug">O que sabíamos com certeza</h3>
+          <ul class="flex flex-col gap-3 text-green-100 text-sm leading-relaxed list-disc list-outside pl-4">
+            <li>As pessoas buscam colegas de quarto principalmente para dividir o custo de moradia em regiões centrais.</li>
+            <li>A maioria prefere morar com amigos ou conhecidos do que com desconhecidos.</li>
+            <li>Posts em redes sociais são uma forma comum de encontrar potenciais colegas, com foco no estilo de vida.</li>
+            <li>Higiene, hábitos e rotinas são as principais fontes de conflito na convivência.</li>
+            <li>Ferramentas de divisão de despesas como o Splitwise já existem, mas não são usadas por todos.</li>
+          </ul>
+        </div>
+
+        <!-- Suposições -->
+        <div class="bg-[#4a5a1e] rounded-xl p-7 flex flex-col gap-5">
+          <span class="text-yellow-200 text-xs uppercase tracking-widest font-medium">Suposições</span>
+          <h3 class="font-serif font-bold text-xl leading-snug">O que achávamos, mas precisávamos confirmar</h3>
+          <ul class="flex flex-col gap-3 text-yellow-100 text-sm leading-relaxed list-disc list-outside pl-4">
+            <li>Pessoas com perfil financeiro e hábitos parecidos convivem melhor.</li>
+            <li>Morar com desconhecidos tem mais chance de gerar experiências negativas do que morar com conhecidos.</li>
+            <li>Reduzir custos era o principal motivo para escolher a moradia compartilhada.</li>
+            <li>As redes sociais são a principal ferramenta para encontrar colegas fora do círculo pessoal.</li>
+          </ul>
+        </div>
+
+        <!-- Dúvidas -->
+        <div class="bg-[#5a2020] rounded-xl p-7 flex flex-col gap-5">
+          <span class="text-red-200 text-xs uppercase tracking-widest font-medium">Dúvidas</span>
+          <h3 class="font-serif font-bold text-xl leading-snug">Perguntas abertas para as entrevistas</h3>
+          <ul class="flex flex-col gap-3 text-red-100 text-sm leading-relaxed list-disc list-outside pl-4">
+            <li>O que torna alguém insuportável como colega de quarto?</li>
+            <li>Como as pessoas se sentem sobre dividir um lar com um completo desconhecido?</li>
+            <li>Quais critérios as pessoas usam para aceitar ou rejeitar um potencial colega?</li>
+            <li>Quanto tempo as pessoas costumam procurar antes de encontrar alguém compatível?</li>
+            <li>O que tornaria esse processo de busca mais fácil?</li>
+            <li>Existe algum tipo de acordo formal entre colegas de quarto?</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SECTION 4: USER INTERVIEW -->
+    <div class="mt-24 flex flex-col gap-12">
+
+      <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Entrevistas com usuários</span>
+
+      <h2 class="font-serif font-bold text-3xl lg:text-4xl leading-snug max-w-2xl">
+        Conversamos com 7 pessoas. As histórias delas responderam cada pergunta em aberto.
+      </h2>
+
+      <!-- Participant Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- Stefani -->
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0" style="background: linear-gradient(135deg, #06b6d4, #0891b2)">S</div>
+            <div>
+              <p class="font-serif font-bold text-base leading-tight">Stefani</p>
+              <p class="text-[#8aafc8] text-xs">22 anos</p>
+            </div>
+          </div>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">Mora em república com 13 pessoas e está planejando dividir um apartamento com duas amigas do mesmo lugar em breve.</p>
+        </div>
+
+        <!-- Aldemyce -->
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0" style="background: linear-gradient(135deg, #3b82f6, #2563eb)">A</div>
+            <div>
+              <p class="font-serif font-bold text-base leading-tight">Aldemyce</p>
+              <p class="text-[#8aafc8] text-xs">28 anos</p>
+            </div>
+          </div>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">Já dividiu moradia duas vezes. Atualmente divide aluguel com duas mulheres no mesmo apartamento.</p>
+        </div>
+
+        <!-- Gabi -->
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0" style="background: linear-gradient(135deg, #22c55e, #16a34a)">G</div>
+            <div>
+              <p class="font-serif font-bold text-base leading-tight">Gabi</p>
+              <p class="text-[#8aafc8] text-xs">44 anos</p>
+            </div>
+          </div>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">Divide moradia por renda. Já teve vários colegas de quarto e vários problemas.</p>
+        </div>
+
+        <!-- Doug -->
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0" style="background: linear-gradient(135deg, #f97316, #ea580c)">D</div>
+            <div>
+              <p class="font-serif font-bold text-base leading-tight">Doug</p>
+              <p class="text-[#8aafc8] text-xs">35 anos</p>
+            </div>
+          </div>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">Já dividiu moradia algumas vezes por necessidade financeira. Valoriza espaço próprio e prefere morar sozinho quando possível.</p>
+        </div>
+
+        <!-- Marina -->
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0" style="background: linear-gradient(135deg, #ec4899, #db2777)">M</div>
+            <div>
+              <p class="font-serif font-bold text-base leading-tight">Marina</p>
+              <p class="text-[#8aafc8] text-xs">29 anos</p>
+            </div>
+          </div>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">Já dividiu moradia várias vezes, incluindo uma experiência ruim. Atualmente divide um apartamento de dois quartos com uma amiga.</p>
+        </div>
+
+        <!-- Pryscilla -->
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0" style="background: linear-gradient(135deg, #a855f7, #9333ea)">P</div>
+            <div>
+              <p class="font-serif font-bold text-base leading-tight">Pryscilla</p>
+              <p class="text-[#8aafc8] text-xs">31 anos</p>
+            </div>
+          </div>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">Considera-se aberta a morar com pessoas. Avalia bem os prós e contras antes de decidir.</p>
+        </div>
+
+        <!-- Participant 7 -->
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0" style="background: linear-gradient(135deg, #f59e0b, #d97706)">7</div>
+            <div>
+              <p class="font-serif font-bold text-base leading-tight">Participante 7</p>
+              <p class="text-[#8aafc8] text-xs">pediu anonimato · 31 anos</p>
+            </div>
+          </div>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">Atualmente divide com 1 pessoa. Preferiria morar sozinha, mas ainda não consegue financeiramente.</p>
+        </div>
+
+      </div>
+
+      <!-- Key Findings -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10 mt-4 pt-10 border-t border-white/10">
+
+        <div class="flex flex-col gap-2">
+          <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">7 de 7 participantes</span>
+          <h3 class="font-serif font-bold text-xl leading-snug">Usaram canais informais</h3>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">Facebook, WhatsApp ou redes pessoais. Ninguém usou uma plataforma dedicada.</p>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">7 de 7 participantes</span>
+          <h3 class="font-serif font-bold text-xl leading-snug">Confiaram em acordos verbais</h3>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">Combinações via WhatsApp ou conversa; apenas um participante tinha contrato escrito.</p>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">6 de 7 participantes</span>
+          <h3 class="font-serif font-bold text-xl leading-snug">Citaram higiene como dealbreaker</h3>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">Limpeza foi o traço intolerável mencionado com mais consistência em todos os perfis.</p>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Média de 1 a 2 semanas</span>
+          <h3 class="font-serif font-bold text-xl leading-snug">Para encontrar um colega</h3>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">O tempo de busca foi curto. O gargalo é a qualidade do match, não a velocidade de descoberta.</p>
+        </div>
+
+      </div>
+
+      <!-- Quote Theme Cards: 2x2 grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+
+        <!-- Card 1: Como encontrar um colega -->
+        <div class="bg-[#1d3447] rounded-2xl p-7 flex flex-col gap-6">
+          <div class="flex flex-col gap-2">
+            <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Como encontrar um colega</span>
+            <h3 class="font-serif font-bold text-xl leading-snug">Todo mundo buscou de forma informal. Ninguém tinha uma opção melhor.</h3>
+          </div>
+          <div class="flex flex-col gap-3">
+            <div class="bg-[#152b3e] rounded-xl p-5 flex flex-col gap-2">
+              <p class="text-[#c8d8e8] text-sm leading-relaxed italic">"Procurei no Facebook e num grupo de BH. Busco pessoas que queiram dividir e que morem perto do trabalho."</p>
+              <span class="text-[#8aafc8] text-xs">Stefani, 22</span>
+            </div>
+            <div class="bg-[#152b3e] rounded-xl p-5 flex flex-col gap-2">
+              <p class="text-[#c8d8e8] text-sm leading-relaxed italic">"Facebook, grupos de WhatsApp da faculdade. Quero saber tudo sobre a pessoa antes de decidir."</p>
+              <span class="text-[#8aafc8] text-xs">Marina, 29</span>
+            </div>
+            <div class="bg-[#152b3e] rounded-xl p-5 flex flex-col gap-2">
+              <p class="text-[#c8d8e8] text-sm leading-relaxed italic">"Acho o Facebook bastante útil, mesmo que as pessoas que encontro nem sempre pareçam genuínas."</p>
+              <span class="text-[#8aafc8] text-xs">Aldemyce, 28</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="bg-[#0f3d2e] text-[#4ade80] text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Grupos do Facebook</span>
+            <span class="bg-[#0f3d2e] text-[#4ade80] text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">WhatsApp</span>
+            <span class="bg-[#0f3d2e] text-[#4ade80] text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Rede pessoal</span>
+            <span class="bg-[#3d1010] text-red-300 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Nenhuma plataforma dedicada</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Critérios de aprovação -->
+        <div class="bg-[#1d3447] rounded-2xl p-7 flex flex-col gap-6">
+          <div class="flex flex-col gap-2">
+            <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Critérios de aprovação</span>
+            <h3 class="font-serif font-bold text-xl leading-snug">Compatibilidade de estilo de vida foi o que mais pesou.</h3>
+          </div>
+          <div class="flex flex-col gap-3">
+            <div class="bg-[#152b3e] rounded-xl p-5 flex flex-col gap-2">
+              <p class="text-[#c8d8e8] text-sm leading-relaxed italic">"Conexão com a pessoa, se passa confiança, se é gentil. Tento conversar sobre a rotina de cada um."</p>
+              <span class="text-[#8aafc8] text-xs">Pryscilla, 31</span>
+            </div>
+            <div class="bg-[#152b3e] rounded-xl p-5 flex flex-col gap-2">
+              <p class="text-[#c8d8e8] text-sm leading-relaxed italic">"Prefiro quem tem o mesmo estilo e vibe. Faço entrevista antes, pode até mandar documentos."</p>
+              <span class="text-[#8aafc8] text-xs">Gabi, 44</span>
+            </div>
+            <div class="bg-[#152b3e] rounded-xl p-5 flex flex-col gap-2">
+              <p class="text-[#c8d8e8] text-sm leading-relaxed italic">"Uma pessoa que respeite as regras de convivência, com hábitos parecidos, segurança financeira e física."</p>
+              <span class="text-[#8aafc8] text-xs">Doug, 35</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="bg-[#0f3d2e] text-[#4ade80] text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Compatibilidade de estilo</span>
+            <span class="bg-[#0f3d2e] text-[#4ade80] text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Segurança financeira</span>
+            <span class="bg-[#0f3d2e] text-[#4ade80] text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Rotinas e hábitos</span>
+            <span class="bg-[#0f3d2e] text-[#4ade80] text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Confiança antes de documentos</span>
+          </div>
+        </div>
+
+        <!-- Card 3: O que torna alguém insuportável -->
+        <div class="bg-[#1d3447] rounded-2xl p-7 flex flex-col gap-6">
+          <div class="flex flex-col gap-2">
+            <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">O que torna alguém insuportável</span>
+            <h3 class="font-serif font-bold text-xl leading-snug">Sujeira, barulho e desrespeito. Sempre.</h3>
+          </div>
+          <div class="flex flex-col gap-3">
+            <div class="bg-[#152b3e] rounded-xl p-5 flex flex-col gap-2">
+              <p class="text-[#c8d8e8] text-sm leading-relaxed italic">"Deixar a cozinha suja e trazer muita gente estranha pra dentro de casa."</p>
+              <span class="text-[#8aafc8] text-xs">Participante 7, 31</span>
+            </div>
+            <div class="bg-[#152b3e] rounded-xl p-5 flex flex-col gap-2">
+              <p class="text-[#c8d8e8] text-sm leading-relaxed italic">"Homofobia, transfobia e outros preconceitos."</p>
+              <span class="text-[#8aafc8] text-xs">Doug, 35</span>
+            </div>
+            <div class="bg-[#152b3e] rounded-xl p-5 flex flex-col gap-2">
+              <p class="text-[#c8d8e8] text-sm leading-relaxed italic">"Louça suja, mau cheiro, áreas comuns bagunçadas."</p>
+              <span class="text-[#8aafc8] text-xs">Marina, 29</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="bg-[#0f3d2e] text-[#4ade80] text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Higiene</span>
+            <span class="bg-[#3d1010] text-red-300 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Desrespeito ao espaço</span>
+            <span class="bg-[#3d1010] text-red-300 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Preconceito</span>
+            <span class="bg-[#3d1010] text-red-300 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Não pagamento</span>
+          </div>
+        </div>
+
+        <!-- Card 4: Regras e acordos -->
+        <div class="bg-[#1d3447] rounded-2xl p-7 flex flex-col gap-6">
+          <div class="flex flex-col gap-2">
+            <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Regras e acordos</span>
+            <h3 class="font-serif font-bold text-xl leading-snug">Quase sempre verbal. Reativo, não preventivo.</h3>
+          </div>
+          <div class="flex flex-col gap-3">
+            <div class="bg-[#152b3e] rounded-xl p-5 flex flex-col gap-2">
+              <p class="text-[#c8d8e8] text-sm leading-relaxed italic">"As regras foram combinadas de boca, sobre divisão de despesas e comportamento geral."</p>
+              <span class="text-[#8aafc8] text-xs">Doug, 35</span>
+            </div>
+            <div class="bg-[#152b3e] rounded-xl p-5 flex flex-col gap-2">
+              <p class="text-[#c8d8e8] text-sm leading-relaxed italic">"Contrato de 3 meses e regras de conduta pelo WhatsApp e num papel colado na parede."</p>
+              <span class="text-[#8aafc8] text-xs">Marina, 29</span>
+            </div>
+            <div class="bg-[#152b3e] rounded-xl p-5 flex flex-col gap-2">
+              <p class="text-[#c8d8e8] text-sm leading-relaxed italic">"Sem contrato nem regras impostas. Tudo combinado verbalmente, o mínimo pra manter a casa."</p>
+              <span class="text-[#8aafc8] text-xs">Participante 7, 31</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="bg-[#0f3d2e] text-[#4ade80] text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Acordos verbais</span>
+            <span class="bg-[#0f3d2e] text-[#4ade80] text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Grupos de WhatsApp</span>
+            <span class="bg-[#3d1010] text-red-300 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Raramente escrito</span>
+            <span class="bg-[#3d1010] text-red-300 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Reativo, não preventivo</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SECTION 5: PERSONAS -->
+    <div class="mt-24 flex flex-col gap-10">
+
+      <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Personas</span>
+
+      <div class="flex flex-col gap-4 max-w-2xl">
+        <h2 class="font-serif font-bold text-3xl lg:text-4xl leading-snug">
+          Duas pessoas. Dois papéis. Uma plataforma que falta para as duas.
+        </h2>
+        <p class="text-[#c8d8e8] text-base leading-relaxed">
+          Da nossa pesquisa, dois perfis distintos de usuário emergiram. Representam os dois lados do mercado de moradia compartilhada. Ambos mal atendidos. Ambos dependendo dos mesmos canais informais e de baixa qualidade.
+        </p>
+      </div>
+
+      <!-- Persona Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+        <!-- Marta: A Moradora em Busca -->
+        <div class="rounded-2xl p-8 flex flex-col gap-6" style="background-color: #3b1f5e;">
+          <span class="text-purple-200 text-xs uppercase tracking-widest font-medium">A moradora em busca</span>
+
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white text-base font-bold flex-shrink-0" style="background: linear-gradient(135deg, #ec4899, #a855f7)">M</div>
+            <div>
+              <p class="font-serif font-bold text-xl leading-tight">Marta Fernandes</p>
+              <p class="text-purple-200 text-sm">30 anos · Mulher · Redatora</p>
+              <p class="text-purple-300 text-sm">Uberaba-MG → São Paulo-SP</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <span class="text-purple-300 text-xs uppercase tracking-widest font-medium">Bio</span>
+            <p class="text-purple-100 text-sm leading-relaxed">Marta trabalha como redatora há 5 anos e foi contratada por um grande jornal em São Paulo. Precisa se mudar imediatamente. Introvertida, passa o tempo livre lendo e assistindo séries. Não conhece ninguém na cidade e nunca dividiu moradia.</p>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <span class="text-purple-300 text-xs uppercase tracking-widest font-medium">Necessidades e objetivos</span>
+            <ul class="flex flex-col gap-1 text-purple-100 text-sm leading-relaxed list-disc list-outside pl-4">
+              <li>Encontrar moradia com 1 ou mais pessoas em até 2 semanas</li>
+              <li>Bem localizada (perto do metrô, trabalho ou comércio essencial)</li>
+              <li>Mobiliada, segura, limpa e acessível</li>
+              <li>Colegas com estilo de vida e valores compatíveis</li>
+            </ul>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <span class="text-purple-300 text-xs uppercase tracking-widest font-medium">Pontos de dor</span>
+            <ul class="flex flex-col gap-1 text-purple-100 text-sm leading-relaxed list-disc list-outside pl-4">
+              <li>Ainda sem renda para arcar com aluguel sozinha em SP</li>
+              <li>Não tem amigos ou contatos na cidade com quem dividir</li>
+              <li>Não conhece canais de busca além do Facebook</li>
+              <li>Teme escolher alguém que não seja quem diz ser</li>
+              <li>Preocupada em acabar num bairro perigoso</li>
+            </ul>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <span class="text-purple-300 text-xs uppercase tracking-widest font-medium">Vida digital</span>
+            <div class="flex flex-wrap gap-2">
+              <span class="border border-purple-300/40 text-purple-200 text-xs px-3 py-1 rounded-full">Instagram</span>
+              <span class="border border-purple-300/40 text-purple-200 text-xs px-3 py-1 rounded-full">Facebook</span>
+              <span class="border border-purple-300/40 text-purple-200 text-xs px-3 py-1 rounded-full">Twitter</span>
+              <span class="border border-purple-300/40 text-purple-200 text-xs px-3 py-1 rounded-full">TikTok</span>
+              <span class="border border-purple-300/40 text-purple-200 text-xs px-3 py-1 rounded-full">Medium</span>
+              <span class="border border-purple-300/40 text-purple-200 text-xs px-3 py-1 rounded-full">YouTube</span>
+              <span class="border border-purple-300/40 text-purple-200 text-xs px-3 py-1 rounded-full">LinkedIn</span>
+              <span class="border border-purple-300/40 text-purple-200 text-xs px-3 py-1 rounded-full">Tinder</span>
+            </div>
+          </div>
+
+          <div class="bg-[#2a1245] rounded-xl p-5 mt-auto">
+            <p class="text-purple-100 text-sm leading-relaxed italic">"Quero encontrar logo pessoas agradáveis, com hábitos parecidos, para dividir uma casa e as despesas."</p>
+          </div>
+        </div>
+
+        <!-- Vinicius: O Anfitrião com Vaga -->
+        <div class="bg-[#1d3447] rounded-2xl p-8 flex flex-col gap-6">
+          <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">O anfitrião com vaga</span>
+
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white text-base font-bold flex-shrink-0" style="background: linear-gradient(135deg, #3b82f6, #06b6d4)">V</div>
+            <div>
+              <p class="font-serif font-bold text-xl leading-tight">Vinicius Silva</p>
+              <p class="text-[#8aafc8] text-sm">28 anos · Homem · Publicitário</p>
+              <p class="text-[#6a9ab8] text-sm">Rio de Janeiro-RJ</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Bio</span>
+            <p class="text-[#c8d8e8] text-sm leading-relaxed">Vinicius é carioca bissexual, extrovertido, adora sair para bares e festas. Atualmente divide um apartamento com uma amiga e está procurando alguém para preencher o quarto que ficou vago. Tem um cachorro e valores fortes em torno de aceitação e inclusão.</p>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Necessidades e objetivos</span>
+            <ul class="flex flex-col gap-1 text-[#c8d8e8] text-sm leading-relaxed list-disc list-outside pl-4">
+              <li>Encontrar alguém para preencher o quarto vago rapidamente</li>
+              <li>A pessoa precisa ser sem preconceitos e respeitar as regras da casa</li>
+              <li>Precisa aceitar cachorro</li>
+              <li>Hábitos e valores parecidos com os dele e da colega</li>
+              <li>Empregado e financeiramente estável</li>
+            </ul>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Pontos de dor</span>
+            <ul class="flex flex-col gap-1 text-[#c8d8e8] text-sm leading-relaxed list-disc list-outside pl-4">
+              <li>Teme que a pessoa não corresponda às expectativas</li>
+              <li>Acha o Facebook ineficiente e pouco confiável</li>
+              <li>Preocupado em não encontrar a pessoa certa antes do vencimento do aluguel</li>
+              <li>Ansioso com a dificuldade de checar estranhos sem referência confiável</li>
+            </ul>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Vida digital</span>
+            <div class="flex flex-wrap gap-2">
+              <span class="border border-white/20 text-[#c8d8e8] text-xs px-3 py-1 rounded-full">Instagram</span>
+              <span class="border border-white/20 text-[#c8d8e8] text-xs px-3 py-1 rounded-full">Pinterest</span>
+              <span class="border border-white/20 text-[#c8d8e8] text-xs px-3 py-1 rounded-full">Grindr</span>
+              <span class="border border-white/20 text-[#c8d8e8] text-xs px-3 py-1 rounded-full">Spotify</span>
+              <span class="border border-white/20 text-[#c8d8e8] text-xs px-3 py-1 rounded-full">YouTube</span>
+            </div>
+          </div>
+
+          <div class="bg-[#152b3e] rounded-xl p-5 mt-auto">
+            <p class="text-[#c8d8e8] text-sm leading-relaxed italic">"Quero encontrar logo uma pessoa legal, sem preconceitos, para morar comigo e minha amiga."</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Perspectives comparison card -->
+      <div class="bg-[#1d3447] rounded-2xl overflow-hidden">
+        <div class="grid grid-cols-1 md:grid-cols-[2fr_3fr_2fr] divide-y md:divide-y-0 md:divide-x divide-white/10">
+
+          <div class="p-8 flex flex-col gap-3">
+            <span class="text-purple-300 text-xs uppercase tracking-widest font-medium">Perspectiva da Marta</span>
+            <h3 class="font-serif font-bold text-xl leading-snug">Precisa encontrar um lugar seguro com pessoas compatíveis numa cidade que ela não conhece.</h3>
+            <p class="text-[#c8d8e8] text-sm leading-relaxed">O medo dela: acabar com as pessoas erradas no bairro errado.</p>
+          </div>
+
+          <div class="p-8 flex items-center justify-center">
+            <p class="text-[#c8d8e8] text-base leading-relaxed text-center italic">
+              Ambos usam o Facebook.<br/>
+              Ambos acham insuficiente.<br/>
+              Ambos estão procurando algo que ainda não existe.
+            </p>
+          </div>
+
+          <div class="p-8 flex flex-col gap-3">
+            <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Perspectiva do Vinicius</span>
+            <h3 class="font-serif font-bold text-xl leading-snug">Precisa preencher o quarto rápido com alguém que realmente encaixe na cultura da casa.</h3>
+            <p class="text-[#c8d8e8] text-sm leading-relaxed">O medo dele: receber alguém completamente diferente do que se apresentou.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SECTION 6: EMPATHY MAP -->
+    <div class="mt-24 flex flex-col gap-10">
+
+      <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Mapa de empatia</span>
+
+      <div class="flex flex-col gap-4 max-w-2xl">
+        <h2 class="font-serif font-bold text-3xl lg:text-4xl leading-snug">
+          O que Marta pensa, ouve, vê e faz. Nenhuma ferramenta endereça isso.
+        </h2>
+        <p class="text-[#c8d8e8] text-base leading-relaxed">
+          Construído a partir das entrevistas e da netnografia, este mapa captura o que nossa persona principal pensa, ouve, vê e diz. Revela a textura emocional de uma experiência que as ferramentas existentes ignoram completamente.
+        </p>
+      </div>
+
+      <!-- 2x2 quadrants -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- THINKS & FEELS -->
+        <div class="rounded-2xl p-7 flex flex-col gap-5" style="background-color: #2e3b18;">
+          <div class="flex flex-col gap-1">
+            <span class="text-[#a8c070] text-xs uppercase tracking-widest font-medium">Pensa e sente</span>
+            <h3 class="font-serif font-bold text-xl leading-snug text-white">Ansiosa, insegura, sem tempo.</h3>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-[#1e2a10] rounded-xl p-4"><p class="text-[#c8d8a0] text-xs leading-relaxed">"Como eu sei se a vaga desse anúncio já foi preenchida?"</p></div>
+            <div class="bg-[#1e2a10] rounded-xl p-4"><p class="text-[#c8d8a0] text-xs leading-relaxed">"Não existe uma forma mais fácil de encontrar moradia compartilhada?"</p></div>
+            <div class="bg-[#1e2a10] rounded-xl p-4"><p class="text-[#c8d8a0] text-xs leading-relaxed">"Vou encontrar um lugar com tudo que eu preciso?"</p></div>
+            <div class="bg-[#1e2a10] rounded-xl p-4"><p class="text-[#c8d8a0] text-xs leading-relaxed">"Vou conseguir me mudar rápido? Estou com pressa."</p></div>
+            <div class="bg-[#1e2a10] rounded-xl p-4"><p class="text-[#c8d8a0] text-xs leading-relaxed">"A convivência vai ser boa com quem mora lá?"</p></div>
+            <div class="bg-[#1e2a10] rounded-xl p-4"><p class="text-[#c8d8a0] text-xs leading-relaxed">"Não tenho como saber se a pessoa do anúncio é como aparece na foto."</p></div>
+          </div>
+        </div>
+
+        <!-- HEARS -->
+        <div class="rounded-2xl p-7 flex flex-col gap-5" style="background-color: #252040;">
+          <div class="flex flex-col gap-1">
+            <span class="text-[#a090d0] text-xs uppercase tracking-widest font-medium">Ouve</span>
+            <h3 class="font-serif font-bold text-xl leading-snug text-white">Histórias de alerta de quem ela confia.</h3>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-[#18153a] rounded-xl p-4"><p class="text-[#c0b8e8] text-xs leading-relaxed">"Cuidado com essa história de dividir casa com desconhecidos."</p></div>
+            <div class="bg-[#18153a] rounded-xl p-4"><p class="text-[#c0b8e8] text-xs leading-relaxed">"Já morei com pessoas de péssimos hábitos que roubaram comida e tudo mais."</p></div>
+            <div class="bg-[#18153a] rounded-xl p-4"><p class="text-[#c0b8e8] text-xs leading-relaxed">"Pesquise os bairros mais seguros e tente fazer videochamada para ver o imóvel."</p></div>
+            <div class="bg-[#18153a] rounded-xl p-4"><p class="text-[#c0b8e8] text-xs leading-relaxed">"Não conheço outro lugar pra encontrar esse tipo de moradia além do Facebook."</p></div>
+            <div class="bg-[#18153a] rounded-xl p-4"><p class="text-[#c0b8e8] text-xs leading-relaxed">"Será que a convivência vai ser boa com quem mora lá?"</p></div>
+            <div class="bg-[#18153a] rounded-xl p-4"><p class="text-[#c0b8e8] text-xs leading-relaxed">"Não dá pra ter certeza se a pessoa do anúncio é como parece na foto."</p></div>
+          </div>
+        </div>
+
+        <!-- SEES -->
+        <div class="rounded-2xl p-7 flex flex-col gap-5" style="background-color: #302e18;">
+          <div class="flex flex-col gap-1">
+            <span class="text-[#c8c070] text-xs uppercase tracking-widest font-medium">Vê</span>
+            <h3 class="font-serif font-bold text-xl leading-snug text-white">Um ambiente de informação caótico e de baixa qualidade.</h3>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-[#201e10] rounded-xl p-4"><p class="text-[#d8d0a0] text-xs leading-relaxed">Anúncios sem descrição completa: preço, número de moradores e localização ausentes.</p></div>
+            <div class="bg-[#201e10] rounded-xl p-4"><p class="text-[#d8d0a0] text-xs leading-relaxed">Anúncios que não seguem as regras do grupo: aluguel temporário disfarçado de longa duração.</p></div>
+            <div class="bg-[#201e10] rounded-xl p-4"><p class="text-[#d8d0a0] text-xs leading-relaxed">Pessoas comentando com perguntas básicas: "Ainda tem vaga? Qual o valor?"</p></div>
+            <div class="bg-[#201e10] rounded-xl p-4"><p class="text-[#d8d0a0] text-xs leading-relaxed">Anúncios cheios de pré-requisitos, sem mencionar respeito à diversidade ou inclusão.</p></div>
+            <div class="bg-[#201e10] rounded-xl p-4"><p class="text-[#d8d0a0] text-xs leading-relaxed">Fotos de baixa qualidade que não mostram o espaço de verdade.</p></div>
+            <div class="bg-[#201e10] rounded-xl p-4"><p class="text-[#d8d0a0] text-xs leading-relaxed">Vídeos no YouTube sobre bairros seguros: sua única referência visual confiável.</p></div>
+          </div>
+        </div>
+
+        <!-- SAYS & DOES -->
+        <div class="rounded-2xl p-7 flex flex-col gap-5" style="background-color: #2a2818;">
+          <div class="flex flex-col gap-1">
+            <span class="text-[#c8b870] text-xs uppercase tracking-widest font-medium">Faz e diz</span>
+            <h3 class="font-serif font-bold text-xl leading-snug text-white">Busca de forma informal, dependendo da rede pessoal.</h3>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-[#1c1a10] rounded-xl p-4"><p class="text-[#d0c890] text-xs leading-relaxed">"O Facebook é muito ultrapassado. Parece coisa de shopping dos anos 2000."</p></div>
+            <div class="bg-[#1c1a10] rounded-xl p-4"><p class="text-[#d0c890] text-xs leading-relaxed">"Você conhece alguém com vaga no apartamento?"</p></div>
+            <div class="bg-[#1c1a10] rounded-xl p-4"><p class="text-[#d0c890] text-xs leading-relaxed">"Preciso de um lugar mobiliado. Não tenho como investir em móveis agora."</p></div>
+            <div class="bg-[#1c1a10] rounded-xl p-4"><p class="text-[#d0c890] text-xs leading-relaxed">"Pra quem mora na cidade: você conhece esse bairro? É seguro?"</p></div>
+            <div class="bg-[#1c1a10] rounded-xl p-4 col-span-2"><p class="text-[#d0c890] text-xs leading-relaxed">"Decidi dividir moradia para economizar."</p></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PAINS & GAINS -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- PAINS -->
+        <div class="rounded-2xl p-7 flex flex-col gap-5" style="background-color: #3a1a1a;">
+          <div class="flex flex-col gap-1">
+            <span class="text-red-300 text-xs uppercase tracking-widest font-medium">Dores</span>
+            <h3 class="font-serif font-bold text-xl leading-snug text-white">O que a trava</h3>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-[#2a1010] rounded-xl p-4"><p class="text-red-200 text-xs leading-relaxed">Não consegue pagar aluguel sozinha</p></div>
+            <div class="bg-[#2a1010] rounded-xl p-4"><p class="text-red-200 text-xs leading-relaxed">Não conhece os bairros seguros da cidade</p></div>
+            <div class="bg-[#2a1010] rounded-xl p-4"><p class="text-red-200 text-xs leading-relaxed">Não tem contatos dispostos a dividir moradia</p></div>
+            <div class="bg-[#2a1010] rounded-xl p-4"><p class="text-red-200 text-xs leading-relaxed">O Facebook não filtra por localização, preço ou moradores</p></div>
+            <div class="bg-[#2a1010] rounded-xl p-4"><p class="text-red-200 text-xs leading-relaxed">Não sente segurança na plataforma</p></div>
+            <div class="bg-[#2a1010] rounded-xl p-4"><p class="text-red-200 text-xs leading-relaxed">Está sem tempo para encontrar um lugar</p></div>
+          </div>
+        </div>
+
+        <!-- GAINS -->
+        <div class="rounded-2xl p-7 flex flex-col gap-5" style="background-color: #1a3a1a;">
+          <div class="flex flex-col gap-1">
+            <span class="text-[#4ade80] text-xs uppercase tracking-widest font-medium">Ganhos</span>
+            <h3 class="font-serif font-bold text-xl leading-snug text-white">O que ela procura</h3>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-[#102a10] rounded-xl p-4"><p class="text-[#a0d8a0] text-xs leading-relaxed">Colegas que respeitam as regras da casa</p></div>
+            <div class="bg-[#102a10] rounded-xl p-4"><p class="text-[#a0d8a0] text-xs leading-relaxed">Bem localizada: perto de metrô, ônibus e trabalho</p></div>
+            <div class="bg-[#102a10] rounded-xl p-4"><p class="text-[#a0d8a0] text-xs leading-relaxed">Espaço mobiliado e estruturalmente adequado</p></div>
+            <div class="bg-[#102a10] rounded-xl p-4"><p class="text-[#a0d8a0] text-xs leading-relaxed">Ambiente doméstico agradável e seguro</p></div>
+            <div class="bg-[#102a10] rounded-xl p-4 col-span-2"><p class="text-[#a0d8a0] text-xs leading-relaxed">Bairro seguro com comércios e serviços próximos</p></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SECTION 7: USER JOURNEY -->
+    <div class="mt-24 flex flex-col gap-10">
+
+      <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Jornada do usuário</span>
+
+      <h2 class="font-serif font-bold text-3xl lg:text-4xl leading-snug max-w-2xl">
+        A jornada de 14 dias da Marta, com ferramentas que nunca foram feitas para ela.
+      </h2>
+
+      <!-- Persona bar -->
+      <div class="bg-[#1d3447] rounded-xl px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="flex items-center gap-4">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0" style="background: linear-gradient(135deg, #ec4899, #a855f7)">M</div>
+          <div>
+            <p class="font-serif font-bold text-base">Marta Fernandes</p>
+            <p class="text-[#c8d8e8] text-sm">Objetivo: Encontrar e se mudar para uma moradia compartilhada em São Paulo</p>
+          </div>
+        </div>
+        <span class="text-orange text-sm font-semibold whitespace-nowrap">Média de 14 dias</span>
+      </div>
+
+      <!-- Emotional curve -->
+      <div class="bg-[#1d3447] rounded-xl px-6 pt-5 pb-6 flex flex-col gap-2">
+        <p class="text-[#8aafc8] text-xs text-center uppercase tracking-widest font-medium mb-2">Curva emocional ao longo da jornada</p>
+        <div class="relative w-full" style="height: 90px;">
+          <svg viewBox="0 0 1000 90" preserveAspectRatio="none" class="absolute inset-0 w-full h-full">
+            <!-- Baseline -->
+            <line x1="0" y1="72" x2="1000" y2="72" stroke="white" stroke-width="1" opacity="0.15"/>
+            <!-- Curve -->
+            <polyline points="100,52 300,42 500,68 700,18 900,58" fill="none" stroke="white" stroke-width="1.5" opacity="0.35" stroke-linejoin="round"/>
+            <!-- Vertical drops to baseline -->
+            <line x1="100" y1="52" x2="100" y2="72" stroke="#f97300" stroke-width="1.5" opacity="0.7"/>
+            <line x1="300" y1="42" x2="300" y2="72" stroke="#f97300" stroke-width="1.5" opacity="0.7"/>
+            <line x1="500" y1="68" x2="500" y2="72" stroke="#f97300" stroke-width="1.5" opacity="0.7"/>
+            <line x1="700" y1="18" x2="700" y2="72" stroke="#f97300" stroke-width="1.5" opacity="0.7"/>
+            <line x1="900" y1="58" x2="900" y2="72" stroke="#f97300" stroke-width="1.5" opacity="0.7"/>
+          </svg>
+          <!-- Emojis positioned absolutely -->
+          <span class="absolute text-2xl" style="left: calc(10% - 14px); top: 24px;">😟</span>
+          <span class="absolute text-2xl" style="left: calc(30% - 14px); top: 14px;">😤</span>
+          <span class="absolute text-2xl" style="left: calc(50% - 14px); top: 40px;">😰</span>
+          <span class="absolute text-2xl" style="left: calc(70% - 14px); top: -6px;">😬</span>
+          <span class="absolute text-2xl" style="left: calc(90% - 14px); top: 30px;">😮‍💨</span>
+        </div>
+        <!-- Day labels -->
+        <div class="flex justify-between px-1 mt-1">
+          <span class="text-[#8aafc8] text-xs w-1/5 text-center">Dia 1</span>
+          <span class="text-[#8aafc8] text-xs w-1/5 text-center">Dias 2-5</span>
+          <span class="text-[#8aafc8] text-xs w-1/5 text-center">Dias 5-8</span>
+          <span class="text-[#8aafc8] text-xs w-1/5 text-center">Dias 9-13</span>
+          <span class="text-[#8aafc8] text-xs w-1/5 text-center">Dia 14</span>
+        </div>
+      </div>
+
+      <!-- Journey table -->
+      <div class="overflow-x-auto rounded-2xl">
+        <div class="min-w-[760px]">
+
+          <!-- Actions & Touchpoints row -->
+          <div class="grid grid-cols-5 divide-x divide-white/10 bg-[#1d3447]">
+
+            <!-- Day 1 -->
+            <div class="p-5 flex flex-col gap-4">
+              <div class="flex flex-col gap-1">
+                <span class="text-[#8aafc8] text-[10px] uppercase tracking-widest font-medium">Dia 1</span>
+                <h4 class="font-serif font-bold text-sm leading-snug">Sem saber por onde começar</h4>
+              </div>
+              <div class="flex flex-col gap-1">
+                <span class="text-[#8aafc8] text-[10px] uppercase tracking-widest font-medium">Ações</span>
+                <ul class="text-[#c8d8e8] text-xs leading-relaxed list-disc list-outside pl-3 flex flex-col gap-1">
+                  <li>Pergunta a amigos e familiares</li>
+                  <li>Pesquisa no Google</li>
+                </ul>
+              </div>
+              <div class="flex flex-col gap-1">
+                <span class="text-[#8aafc8] text-[10px] uppercase tracking-widest font-medium">Pontos de contato</span>
+                <ul class="text-[#c8d8e8] text-xs leading-relaxed list-disc list-outside pl-3 flex flex-col gap-1">
+                  <li>WhatsApp</li>
+                  <li>Google</li>
+                  <li>Instagram</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Days 2-5 -->
+            <div class="p-5 flex flex-col gap-4">
+              <div class="flex flex-col gap-1">
+                <span class="text-[#8aafc8] text-[10px] uppercase tracking-widest font-medium">Dias 2-5</span>
+                <h4 class="font-serif font-bold text-sm leading-snug">Buscando em plataformas</h4>
+              </div>
+              <div class="flex flex-col gap-1">
+                <span class="text-[#8aafc8] text-[10px] uppercase tracking-widest font-medium">Ações</span>
+                <ul class="text-[#c8d8e8] text-xs leading-relaxed list-disc list-outside pl-3 flex flex-col gap-1">
+                  <li>Explora plataformas de aluguel</li>
+                  <li>Posta em grupos do Facebook</li>
+                  <li>Navega pelos anúncios</li>
+                </ul>
+              </div>
+              <div class="flex flex-col gap-1">
+                <span class="text-[#8aafc8] text-[10px] uppercase tracking-widest font-medium">Pontos de contato</span>
+                <ul class="text-[#c8d8e8] text-xs leading-relaxed list-disc list-outside pl-3 flex flex-col gap-1">
+                  <li>Sites de aluguel e coliving</li>
+                  <li>WhatsApp, Facebook</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Days 5-8 -->
+            <div class="p-5 flex flex-col gap-4">
+              <div class="flex flex-col gap-1">
+                <span class="text-[#8aafc8] text-[10px] uppercase tracking-widest font-medium">Dias 5-8</span>
+                <h4 class="font-serif font-bold text-sm leading-snug">Filtrando as opções</h4>
+              </div>
+              <div class="flex flex-col gap-1">
+                <span class="text-[#8aafc8] text-[10px] uppercase tracking-widest font-medium">Ações</span>
+                <ul class="text-[#c8d8e8] text-xs leading-relaxed list-disc list-outside pl-3 flex flex-col gap-1">
+                  <li>Salva links dos melhores anúncios</li>
+                  <li>Contata anunciantes</li>
+                  <li>Escolhe o imóvel</li>
+                </ul>
+              </div>
+              <div class="flex flex-col gap-1">
+                <span class="text-[#8aafc8] text-[10px] uppercase tracking-widest font-medium">Pontos de contato</span>
+                <ul class="text-[#c8d8e8] text-xs leading-relaxed list-disc list-outside pl-3 flex flex-col gap-1">
+                  <li>Facebook Chat</li>
+                  <li>WhatsApp, Telefone</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Days 9-13 -->
+            <div class="p-5 flex flex-col gap-4">
+              <div class="flex flex-col gap-1">
+                <span class="text-[#8aafc8] text-[10px] uppercase tracking-widest font-medium">Dias 9-13</span>
+                <h4 class="font-serif font-bold text-sm leading-snug">Preparando a mudança</h4>
+              </div>
+              <div class="flex flex-col gap-1">
+                <span class="text-[#8aafc8] text-[10px] uppercase tracking-widest font-medium">Ações</span>
+                <ul class="text-[#c8d8e8] text-xs leading-relaxed list-disc list-outside pl-3 flex flex-col gap-1">
+                  <li>Compra passagens</li>
+                  <li>Resolve burocracias</li>
+                  <li>Faz as malas</li>
+                </ul>
+              </div>
+              <div class="flex flex-col gap-1">
+                <span class="text-[#8aafc8] text-[10px] uppercase tracking-widest font-medium">Pontos de contato</span>
+                <ul class="text-[#c8d8e8] text-xs leading-relaxed list-disc list-outside pl-3 flex flex-col gap-1">
+                  <li>Sites de viagem</li>
+                  <li>Bancos e portais governamentais</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Day 14 -->
+            <div class="p-5 flex flex-col gap-4">
+              <div class="flex flex-col gap-1">
+                <span class="text-[#8aafc8] text-[10px] uppercase tracking-widest font-medium">Dia 14</span>
+                <h4 class="font-serif font-bold text-sm leading-snug">Dia da mudança</h4>
+              </div>
+              <div class="flex flex-col gap-1">
+                <span class="text-[#8aafc8] text-[10px] uppercase tracking-widest font-medium">Ações</span>
+                <ul class="text-[#c8d8e8] text-xs leading-relaxed list-disc list-outside pl-3 flex flex-col gap-1">
+                  <li>Viaja para a nova cidade</li>
+                  <li>Chega ao imóvel</li>
+                  <li>Conhece os moradores</li>
+                </ul>
+              </div>
+              <div class="flex flex-col gap-1">
+                <span class="text-[#8aafc8] text-[10px] uppercase tracking-widest font-medium">Pontos de contato</span>
+                <ul class="text-[#c8d8e8] text-xs leading-relaxed list-disc list-outside pl-3 flex flex-col gap-1">
+                  <li>Uber</li>
+                  <li>WhatsApp</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Emotional state row -->
+          <div class="grid grid-cols-5 divide-x divide-white/10 bg-[#0f1e2d]">
+            <div class="p-5"><p class="text-[#8aafc8] text-xs leading-relaxed italic">Ansiosa e apreensiva. Pouco tempo. Não sabe como encontrar moradia compartilhada.</p></div>
+            <div class="p-5"><p class="text-[#8aafc8] text-xs leading-relaxed italic">Aliviada ao encontrar uma comunidade. Mas confusa com os anúncios e frustrada por não conseguir filtrar direito.</p></div>
+            <div class="p-5"><p class="text-[#8aafc8] text-xs leading-relaxed italic">Insegura com pessoas que não conhece. Estressada: alguns quartos já foram, anunciantes não respondem.</p></div>
+            <div class="p-5"><p class="text-[#8aafc8] text-xs leading-relaxed italic">Animada, mas com medo da nova cidade. Cansada com as exigências da mudança. Quer conhecer os futuros colegas antes de chegar.</p></div>
+            <div class="p-5"><p class="text-[#8aafc8] text-xs leading-relaxed italic">Cansada. Ansiosa. Decepcionada: o quarto era menor do que esperava. Insegura com a nova convivência. Mas aliviada de ter terminado.</p></div>
+          </div>
+
+          <!-- Opportunities row -->
+          <div class="grid grid-cols-5 divide-x divide-[#5a4a10]/40 rounded-b-2xl overflow-hidden" style="background-color: #252010;">
+            <div class="p-5 flex flex-col gap-3">
+              <span class="text-[#c8a840] text-[10px] uppercase tracking-widest font-medium">Oportunidade</span>
+              <ul class="text-[#d8c880] text-xs leading-relaxed list-disc list-outside pl-3 flex flex-col gap-2">
+                <li>Posicionar a plataforma no Google e Instagram, onde a busca começa</li>
+                <li>Onboarding que explica a proposta em menos de 30 segundos</li>
+              </ul>
+            </div>
+            <div class="p-5 flex flex-col gap-3">
+              <span class="text-[#c8a840] text-[10px] uppercase tracking-widest font-medium">Oportunidade</span>
+              <ul class="text-[#d8c880] text-xs leading-relaxed list-disc list-outside pl-3 flex flex-col gap-2">
+                <li>Filtros baseados em compatibilidade, não só preço e localização</li>
+                <li>Anúncios ordenados por pontuação de match, não por data</li>
+              </ul>
+            </div>
+            <div class="p-5 flex flex-col gap-3">
+              <span class="text-[#c8a840] text-[10px] uppercase tracking-widest font-medium">Oportunidade</span>
+              <ul class="text-[#d8c880] text-xs leading-relaxed list-disc list-outside pl-3 flex flex-col gap-2">
+                <li>Mensagens nativas no app, sem precisar ir para o WhatsApp</li>
+                <li>Selo de compatibilidade em cada card de anúncio</li>
+                <li>Fotos reais com dimensões verificadas do quarto</li>
+                <li>Status da vaga visível: aberta, preenchida ou reservada</li>
+              </ul>
+            </div>
+            <div class="p-5 flex flex-col gap-3">
+              <span class="text-[#c8a840] text-[10px] uppercase tracking-widest font-medium">Oportunidade</span>
+              <ul class="text-[#d8c880] text-xs leading-relaxed list-disc list-outside pl-3 flex flex-col gap-2">
+                <li>Recurso de apresentação pré-mudança entre futuros colegas</li>
+                <li>Construtor guiado de acordo de convivência antes da chegada</li>
+              </ul>
+            </div>
+            <div class="p-5 flex flex-col gap-3">
+              <span class="text-[#c8a840] text-[10px] uppercase tracking-widest font-medium">Oportunidade</span>
+              <ul class="text-[#d8c880] text-xs leading-relaxed list-disc list-outside pl-3 flex flex-col gap-2">
+                <li>Checklist de entrada com registro das condições do quarto</li>
+                <li>Controle de despesas compartilhadas desde o primeiro dia</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SECTION 8: COMPETITOR ANALYSIS -->
+    <div class="mt-24 flex flex-col gap-10">
+
+      <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Análise de concorrentes</span>
+
+      <div class="flex flex-col gap-4 max-w-2xl">
+        <h2 class="font-serif font-bold text-3xl lg:text-4xl leading-snug">
+          Antes de projetar qualquer coisa, olhamos para o que já existia.
+        </h2>
+        <p class="text-[#c8d8e8] text-base leading-relaxed">
+          Mapeamos 10 plataformas: 6 concorrentes diretos e 4 indiretos. Avaliamos contra 8 critérios que mais importam para nossos usuários. O padrão era inconfundível.
+        </p>
+      </div>
+
+      <!-- Key insight banner -->
+      <div class="bg-[#1d3447] border border-[#3a5a7a] rounded-xl px-7 py-5">
+        <p class="text-white text-sm leading-relaxed">
+          <strong>A única plataforma que funciona no Brasil não tem nenhum recurso de compatibilidade entre pessoas.</strong> Toda plataforma com ferramentas de compatibilidade não funciona no Brasil. Esse é o espaço em branco.
+        </p>
+      </div>
+
+      <!-- Comparison table -->
+      <div class="overflow-x-auto rounded-2xl border border-white/10">
+        <table class="min-w-[680px] w-full border-collapse text-sm">
+          <!-- Header row -->
+          <thead>
+            <tr class="bg-[#152b3e]">
+              <th class="text-left p-4 text-[#8aafc8] text-xs font-medium w-[200px]"></th>
+              <th class="p-4 text-center text-white text-xs font-semibold border-l border-white/10">Web Quarto</th>
+              <th class="p-4 text-center text-white text-xs font-semibold border-l border-white/10">Flatmate Finders</th>
+              <th class="p-4 text-center text-white text-xs font-semibold border-l border-white/10">Ideal Flatmates</th>
+              <th class="p-4 text-center text-white text-xs font-semibold border-l border-white/10">Spare Room</th>
+              <th class="p-4 text-center text-white text-xs font-semibold border-l border-white/10">Flatmates</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Row 1 -->
+            <tr class="border-t border-white/10 bg-[#1d3447]">
+              <td class="p-4 text-[#c8d8e8] text-xs">Funciona no Brasil</td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#4ade80] text-base">✓</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-amber-400 text-base">▲</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#5a7a8a] text-base font-bold">✕</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#5a7a8a] text-base font-bold">✕</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#5a7a8a] text-base font-bold">✕</span></td>
+            </tr>
+            <!-- Row 2 -->
+            <tr class="border-t border-white/10 bg-[#152b3e]">
+              <td class="p-4 text-[#c8d8e8] text-xs">Filtros de busca por imóvel</td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#4ade80] text-base">✓</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#5a7a8a] text-base font-bold">✕</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#4ade80] text-base">✓</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#4ade80] text-base">✓</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#4ade80] text-base">✓</span></td>
+            </tr>
+            <!-- Row 3 -->
+            <tr class="border-t border-white/10 bg-[#1d3447]">
+              <td class="p-4 text-[#c8d8e8] text-xs">Filtros de busca por perfil / pessoa</td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#5a7a8a] text-base font-bold">✕</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#4ade80] text-base">✓</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#4ade80] text-base">✓</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#4ade80] text-base">✓</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#4ade80] text-base">✓</span></td>
+            </tr>
+            <!-- Row 4 -->
+            <tr class="border-t border-white/10 bg-[#152b3e]">
+              <td class="p-4 text-[#c8d8e8] text-xs">Match de compatibilidade com IA</td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#5a7a8a] text-base font-bold">✕</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#5a7a8a] text-base font-bold">✕</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#4ade80] text-base">✓</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#5a7a8a] text-base font-bold">✕</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#5a7a8a] text-base font-bold">✕</span></td>
+            </tr>
+            <!-- Row 5 -->
+            <tr class="border-t border-white/10 bg-[#1d3447]">
+              <td class="p-4 text-[#c8d8e8] text-xs">Localização exata do imóvel / mapa</td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#4ade80] text-base">✓</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#4ade80] text-base">✓</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#4ade80] text-base">✓</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#4ade80] text-base">✓</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#4ade80] text-base">✓</span></td>
+            </tr>
+            <!-- Row 6 -->
+            <tr class="border-t border-white/10 bg-[#152b3e]">
+              <td class="p-4 text-[#c8d8e8] text-xs">Mensagens diretas</td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-amber-400 text-base">▲</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-amber-400 text-base">▲</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-amber-400 text-base">▲</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-amber-400 text-base">▲</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-amber-400 text-base">▲</span></td>
+            </tr>
+            <!-- Row 7 -->
+            <tr class="border-t border-white/10 bg-[#1d3447]">
+              <td class="p-4 text-[#c8d8e8] text-xs">Videochamada</td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#4ade80] text-base">✓</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#4ade80] text-base">✓</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#4ade80] text-base">✓</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#4ade80] text-base">✓</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#4ade80] text-base">✓</span></td>
+            </tr>
+            <!-- Row 8 -->
+            <tr class="border-t border-white/10 bg-[#152b3e]">
+              <td class="p-4 text-[#c8d8e8] text-xs">Plano pago / recursos premium</td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#4ade80] text-base">✓</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#5a7a8a] text-sm">—</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#5a7a8a] text-sm">—</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#5a7a8a] text-sm">—</span></td>
+              <td class="p-4 text-center border-l border-white/10"><span class="text-[#5a7a8a] text-sm">—</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Icon legend -->
+      <div class="flex flex-wrap gap-6 text-xs text-[#c8d8e8]">
+        <span class="flex items-center gap-2"><span class="text-[#4ade80]">✓</span> Tem o recurso</span>
+        <span class="flex items-center gap-2"><span class="text-[#5a7a8a] font-bold">✕</span> Não tem</span>
+        <span class="flex items-center gap-2"><span class="text-amber-400">▲</span> Parcial ou limitado</span>
+        <span class="flex items-center gap-2"><span class="text-[#5a7a8a]">—</span> Sem dados</span>
+      </div>
+
+      <!-- 3 finding cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <div class="bg-[#1d3447] rounded-2xl p-7 flex flex-col gap-3">
+          <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Descoberta 01</span>
+          <h3 class="font-serif font-bold text-xl leading-snug">O Brasil é um mercado desatendido</h3>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">O Web Quarto é a única plataforma especializada que funciona no Brasil. Todos os outros concorrentes: Flatmate Finders, Ideal Flatmates e Spare Room atuam exclusivamente em mercados de língua inglesa.</p>
+        </div>
+
+        <div class="rounded-2xl p-7 flex flex-col gap-3 border border-orange/30" style="background-color: #1e2a10;">
+          <span class="text-orange text-xs uppercase tracking-widest font-medium">O gap crítico</span>
+          <h3 class="font-serif font-bold text-xl leading-snug">Nenhuma plataforma oferece os dois: cobertura no Brasil e compatibilidade entre pessoas</h3>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">O Web Quarto funciona localmente, mas não tem filtro por pessoa. O Ideal Flatmates tem match com IA, mas não funciona no Brasil. A oportunidade é construir o que nenhuma das duas oferece, no mercado que mais precisa.</p>
+        </div>
+
+        <div class="bg-[#1d3447] rounded-2xl p-7 flex flex-col gap-3">
+          <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Descoberta 02</span>
+          <h3 class="font-serif font-bold text-xl leading-snug">Canais indiretos dominam por padrão</h3>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">Por falta de ferramentas especializadas, os brasileiros recorrem ao Facebook, WhatsApp e Instagram. São plataformas feitas para conexão social, não para compatibilidade habitacional. O resultado é a experiência caótica que nossos usuários descreveram.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SECTION 9: BUSINESS MODEL CANVAS -->
+    <div class="mt-24 flex flex-col gap-10">
+
+      <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Modelo de negócio</span>
+
+      <div class="flex flex-col gap-4 max-w-2xl">
+        <h2 class="font-serif font-bold text-3xl lg:text-4xl leading-snug">
+          Traduzindo as descobertas em um produto que se sustenta.
+        </h2>
+        <p class="text-[#c8d8e8] text-base leading-relaxed">
+          O Business Model Canvas traduz os achados de UX em uma estratégia de produto viável: definindo quem atendemos, como chegamos até eles e como a plataforma se sustenta.
+        </p>
+      </div>
+
+      <!-- BMC grid (scrollable on mobile) -->
+      <div class="overflow-x-auto rounded-2xl border border-white/10">
+        <div class="min-w-[700px]">
+
+          <!-- Column headers -->
+          <div style="display:grid; grid-template-columns: repeat(5, 1fr);" class="border-b border-white/10 bg-[#152b3e]">
+            <div class="p-4 text-center"><span class="text-white text-xs font-semibold">Parceiros-chave</span></div>
+            <div class="p-4 text-center border-l border-white/10"><span class="text-white text-xs font-semibold">Atividades-chave</span></div>
+            <div class="p-4 text-center border-l border-white/10"><span class="text-white text-xs font-semibold">Proposta de Valor</span></div>
+            <div class="p-4 text-center border-l border-white/10"><span class="text-white text-xs font-semibold">Relacionamento com Clientes</span></div>
+            <div class="p-4 text-center border-l border-white/10"><span class="text-white text-xs font-semibold">Segmentos de Clientes</span></div>
+          </div>
+
+          <!-- Main BMC body using grid-template-areas -->
+          <div style="display:grid; grid-template-areas: 'partners activities vp cr segments' 'partners resources vp channels segments'; grid-template-columns: repeat(5, 1fr); grid-template-rows: auto auto;">
+
+            <!-- Key Partners (row-spans 2) -->
+            <div style="grid-area: partners;" class="bg-[#1d3447] p-5 border-r border-white/10 border-b border-b-white/10 flex flex-col gap-3">
+              <div class="bg-[#152b3e] rounded-xl p-4 flex flex-col gap-1">
+                <p class="text-[#c8d8e8] text-xs leading-relaxed">Tribunal de Justiça</p>
+                <p class="text-[#8aafc8] text-[10px]">verificação de antecedentes criminais</p>
+              </div>
+              <div class="bg-[#152b3e] rounded-xl p-4">
+                <p class="text-[#c8d8e8] text-xs leading-relaxed">Processadoras de pagamento</p>
+                <p class="text-[#8aafc8] text-[10px]">plano pago</p>
+              </div>
+              <div class="bg-[#152b3e] rounded-xl p-4">
+                <p class="text-[#c8d8e8] text-xs leading-relaxed">Provedores de API de mapas</p>
+              </div>
+            </div>
+
+            <!-- Key Activities (row 1) -->
+            <div style="grid-area: activities;" class="bg-[#1d3447] p-5 border-r border-white/10 flex flex-col gap-3">
+              <div class="bg-[#152b3e] rounded-xl p-4">
+                <p class="text-[#c8d8e8] text-xs leading-relaxed">Desenvolvimento da plataforma web e mobile</p>
+              </div>
+              <div class="bg-[#152b3e] rounded-xl p-4">
+                <p class="text-[#c8d8e8] text-xs leading-relaxed">Marketing digital e aquisição de usuários</p>
+              </div>
+            </div>
+
+            <!-- Value Proposition (row-spans 2, amber) -->
+            <div style="grid-area: vp; background-color: #6b4a28;" class="p-5 border-r border-black/20 flex flex-col justify-center gap-6">
+              <div class="bg-black/15 rounded-xl p-5">
+                <p class="text-amber-100 text-sm leading-relaxed">Melhorar a experiência de busca por moradia compartilhada no Brasil</p>
+              </div>
+              <div class="bg-black/15 rounded-xl p-5">
+                <p class="text-amber-100 text-sm leading-relaxed">Facilitar a gestão da convivência em uma moradia compartilhada</p>
+              </div>
+            </div>
+
+            <!-- Customer Relationships (row 1) -->
+            <div style="grid-area: cr;" class="bg-[#1d3447] p-5 border-r border-white/10 flex flex-col gap-3">
+              <div class="bg-[#152b3e] rounded-xl p-4"><p class="text-[#c8d8e8] text-xs">Ótima usabilidade</p></div>
+              <div class="bg-[#152b3e] rounded-xl p-4"><p class="text-[#c8d8e8] text-xs">Suporte ao cliente</p></div>
+              <div class="bg-[#152b3e] rounded-xl p-4"><p class="text-[#c8d8e8] text-xs">FAQ / autoatendimento</p></div>
+            </div>
+
+            <!-- Customer Segments (row-spans 2) -->
+            <div style="grid-area: segments;" class="bg-[#1d3447] p-5 flex flex-col gap-3">
+              <div class="bg-[#152b3e] rounded-xl p-4">
+                <p class="text-[#c8d8e8] text-xs leading-relaxed">Pessoas com imóvel compartilhado para anunciar</p>
+              </div>
+              <div class="bg-[#152b3e] rounded-xl p-4 mt-auto">
+                <p class="text-[#c8d8e8] text-xs leading-relaxed">Pessoas em busca de moradia compartilhada</p>
+              </div>
+            </div>
+
+            <!-- Key Resources (row 2) -->
+            <div style="grid-area: resources;" class="bg-[#152b3e] p-5 border-r border-white/10 border-t border-t-white/10 flex flex-col gap-3">
+              <div class="bg-[#1d3447] rounded-xl p-4"><p class="text-[#c8d8e8] text-xs">Time de desenvolvimento</p></div>
+              <div class="bg-[#1d3447] rounded-xl p-4"><p class="text-[#c8d8e8] text-xs">Time de marketing</p></div>
+            </div>
+
+            <!-- Channels (row 2) -->
+            <div style="grid-area: channels;" class="bg-[#152b3e] p-5 border-r border-white/10 border-t border-t-white/10 flex flex-col gap-2">
+              <div class="bg-[#1d3447] rounded-xl p-3"><p class="text-[#c8d8e8] text-xs">App web e mobile</p></div>
+              <div class="bg-[#1d3447] rounded-xl p-3"><p class="text-[#c8d8e8] text-xs">Anúncios pagos</p></div>
+              <div class="bg-[#1d3447] rounded-xl p-3"><p class="text-[#c8d8e8] text-xs">Instagram</p></div>
+              <div class="bg-[#1d3447] rounded-xl p-3"><p class="text-[#c8d8e8] text-xs">Facebook</p></div>
+              <div class="bg-[#1d3447] rounded-xl p-3"><p class="text-[#c8d8e8] text-xs">TikTok</p></div>
+              <div class="bg-[#1d3447] rounded-xl p-3"><p class="text-[#c8d8e8] text-xs">Twitter</p></div>
+            </div>
+
+          </div>
+
+          <!-- Cost Structure + Revenue Streams -->
+          <div style="display:grid; grid-template-columns: 1fr 1fr;" class="border-t border-white/10">
+
+            <!-- Cost Structure -->
+            <div class="p-6 bg-[#1d3447] border-r border-white/10 flex flex-col gap-4">
+              <div class="flex flex-col gap-1">
+                <span class="text-[#8aafc8] text-[10px] uppercase tracking-widest font-medium">Estrutura de custos</span>
+                <h4 class="font-serif font-bold text-base">O que a plataforma gasta</h4>
+              </div>
+              <div class="flex flex-col gap-2">
+                <div class="bg-[#152b3e] rounded-lg p-3"><p class="text-[#c8d8e8] text-xs">Infraestrutura tecnológica</p></div>
+                <div class="grid grid-cols-2 gap-2">
+                  <div class="bg-[#152b3e] rounded-lg p-3"><p class="text-[#c8d8e8] text-xs">Time e colaboradores</p></div>
+                  <div class="bg-[#152b3e] rounded-lg p-3"><p class="text-[#c8d8e8] text-xs">Marketing</p></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Revenue Streams -->
+            <div class="p-6 bg-[#1d3447] flex flex-col gap-4">
+              <div class="flex flex-col gap-1">
+                <span class="text-[#8aafc8] text-[10px] uppercase tracking-widest font-medium">Fontes de receita</span>
+                <h4 class="font-serif font-bold text-base">Como a plataforma ganha</h4>
+              </div>
+              <div class="flex flex-col gap-2">
+                <div class="bg-[#152b3e] rounded-lg p-3"><p class="text-[#c8d8e8] text-xs">Assinaturas mensais do plano pago</p></div>
+                <div class="bg-[#152b3e] rounded-lg p-3"><p class="text-[#c8d8e8] text-xs">Anúncios em destaque</p></div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Callout card -->
+      <div class="rounded-2xl p-7 flex flex-col gap-3" style="background-color: #4a3818;">
+        <h3 class="font-serif font-bold text-lg leading-snug text-amber-100">Detalhe de design que vale destacar: a parceria de verificação de antecedentes criminais</h3>
+        <p class="text-amber-200/80 text-sm leading-relaxed">Um dos medos mais recorrentes nas entrevistas: especialmente para Marta, se mudando sozinha para uma cidade nova, era a incapacidade de verificar quem ela estaria realmente morando. Parceria com o sistema do Tribunal de Justiça para oferecer verificação opcional de antecedentes criminais endereça diretamente esse gap de confiança. É uma decisão de UX tanto quanto de negócio: transparência de segurança como funcionalidade central, não como um adendo.</p>
+      </div>
+
+    </div>
+
+    <!-- SECTION 10: USER FLOW -->
+    <div class="mt-24 flex flex-col gap-10">
+
+      <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Fluxo do usuário</span>
+
+      <div class="flex flex-col gap-4 max-w-2xl">
+        <h2 class="font-serif font-bold text-3xl lg:text-4xl leading-snug">
+          Cada descoberta da pesquisa mapeada em uma etapa do fluxo.
+        </h2>
+        <p class="text-[#c8d8e8] text-base leading-relaxed">
+          O fluxo revela uma decisão de design central: o quiz de compatibilidade é opcional. Você pode navegar sem ele, mas ele desbloqueia matches muito melhores. Isso respeita a autonomia do usuário enquanto incentiva melhores resultados.
+        </p>
+      </div>
+
+      <!-- Flow diagram -->
+      <div class="bg-[#1d3447] rounded-2xl p-6 overflow-x-auto">
+        <div class="min-w-[660px]">
+          <svg viewBox="0 0 680 215" class="w-full" xmlns="http://www.w3.org/2000/svg" style="font-family: Inter, sans-serif;">
+            <defs>
+              <marker id="arr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+                <path d="M0,0 L0,7 L7,3.5 z" fill="rgba(255,255,255,0.45)"/>
+              </marker>
+              <marker id="arr-dash" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+                <path d="M0,0 L0,7 L7,3.5 z" fill="rgba(255,255,255,0.3)"/>
+              </marker>
+            </defs>
+
+            <!-- ── MAIN PATH ── -->
+
+            <!-- 1. Acessar App (circle) -->
+            <circle cx="40" cy="75" r="26" fill="#5a1818"/>
+            <text x="40" y="71" text-anchor="middle" fill="white" font-size="7">Acessar</text>
+            <text x="40" y="82" text-anchor="middle" fill="white" font-size="7">App</text>
+
+            <line x1="66" y1="75" x2="77" y2="75" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" marker-end="url(#arr)"/>
+
+            <!-- 2. Cadastro -->
+            <rect x="78" y="62" width="74" height="26" rx="4" fill="#243d54"/>
+            <text x="115" y="78" text-anchor="middle" fill="white" font-size="8">Cadastro</text>
+
+            <line x1="152" y1="75" x2="170" y2="75" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" marker-end="url(#arr)"/>
+
+            <!-- 3. Responder Quiz? (diamond) -->
+            <polygon points="194,53 218,75 194,97 170,75" fill="#5a1818"/>
+            <text x="194" y="72" text-anchor="middle" fill="white" font-size="6.5">Resp.</text>
+            <text x="194" y="82" text-anchor="middle" fill="white" font-size="6.5">Quiz?</text>
+
+            <!-- Yes arrow -->
+            <line x1="218" y1="75" x2="230" y2="75" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" marker-end="url(#arr)"/>
+            <text x="224" y="70" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="7">Sim</text>
+
+            <!-- 4. Quiz de Match -->
+            <rect x="232" y="62" width="82" height="26" rx="4" fill="#3a2510"/>
+            <text x="273" y="78" text-anchor="middle" fill="white" font-size="8">Quiz de Match</text>
+
+            <line x1="314" y1="75" x2="326" y2="75" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" marker-end="url(#arr)"/>
+
+            <!-- 5. Feed de Vagas -->
+            <rect x="328" y="62" width="78" height="26" rx="4" fill="#3a2510"/>
+            <text x="367" y="78" text-anchor="middle" fill="white" font-size="8">Feed de Vagas</text>
+
+            <line x1="406" y1="75" x2="418" y2="75" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" marker-end="url(#arr)"/>
+
+            <!-- 6. Ver Anúncio -->
+            <rect x="420" y="62" width="76" height="26" rx="4" fill="#243d54"/>
+            <text x="458" y="78" text-anchor="middle" fill="white" font-size="8">Ver Anúncio</text>
+
+            <line x1="496" y1="75" x2="507" y2="75" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" marker-end="url(#arr)"/>
+
+            <!-- 7. Enviar Mensagem -->
+            <rect x="509" y="62" width="86" height="26" rx="4" fill="#243d54"/>
+            <text x="552" y="75" text-anchor="middle" fill="white" font-size="7.5">Enviar</text>
+            <text x="552" y="85" text-anchor="middle" fill="white" font-size="7.5">Mensagem</text>
+
+            <line x1="595" y1="75" x2="605" y2="75" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" marker-end="url(#arr)"/>
+
+            <!-- 8. Fechar Vaga (circle) -->
+            <circle cx="632" cy="75" r="26" fill="#1a3530"/>
+            <text x="632" y="71" text-anchor="middle" fill="white" font-size="7">Fechar</text>
+            <text x="632" y="82" text-anchor="middle" fill="white" font-size="7">Vaga</text>
+
+            <!-- ── SKIP BRANCH ── -->
+
+            <!-- Down arrow from diamond -->
+            <line x1="194" y1="97" x2="194" y2="135" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" marker-end="url(#arr)"/>
+
+            <!-- Pular rect -->
+            <rect x="169" y="137" width="50" height="24" rx="4" fill="#243d54"/>
+            <text x="194" y="152" text-anchor="middle" fill="white" font-size="8">Pular</text>
+
+            <!-- Dashed line: Skip → Feed de Vagas bottom -->
+            <path d="M 219,149 H 367 V 88" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-dash)"/>
+
+            <!-- ── POST-CONTACT BRANCH ── -->
+
+            <!-- Down arrow from Enviar Mensagem -->
+            <line x1="552" y1="88" x2="552" y2="153" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" marker-end="url(#arr)"/>
+
+            <!-- Responder Quiz (post-contact diamond) -->
+            <polygon points="552,155 574,177 552,199 530,177" fill="#5a1818"/>
+            <text x="552" y="174" text-anchor="middle" fill="white" font-size="6.5">Resp.</text>
+            <text x="552" y="184" text-anchor="middle" fill="white" font-size="6.5">Quiz</text>
+
+            <!-- Sim label + dashed line → Fechar Vaga bottom -->
+            <text x="598" y="172" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="7">Sim</text>
+            <path d="M 574,177 H 632 V 101" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-dash)"/>
+
+          </svg>
+        </div>
+      </div>
+
+      <!-- 4 feature cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+
+        <div class="bg-[#1d3447] rounded-2xl p-6 flex flex-col gap-4">
+          <h3 class="font-serif font-bold text-lg leading-snug">Cadastro e quiz opcional</h3>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">Após o cadastro, o usuário é convidado a completar um quiz de compatibilidade. Decisão de design central: é opcional, preservando autonomia, mas desbloqueia listagens muito mais bem correspondidas.</p>
+          <div class="bg-[#152b3e] rounded-lg p-3 mt-auto">
+            <p class="text-[#8aafc8] text-xs leading-relaxed">Opcional = menos atrito na entrada</p>
+          </div>
+        </div>
+
+        <div class="bg-[#1d3447] rounded-2xl p-6 flex flex-col gap-4">
+          <h3 class="font-serif font-bold text-lg leading-snug">Quiz de match</h3>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">Questionário estruturado que captura estilo de vida, hábitos e preferências: os dados de compatibilidade que nenhuma plataforma brasileira coleta hoje. Endereça diretamente o principal ponto de dor da pesquisa.</p>
+          <div class="bg-[#152b3e] rounded-lg p-3 mt-auto">
+            <p class="text-[#8aafc8] text-xs leading-relaxed">A funcionalidade que cria o espaço em branco</p>
+          </div>
+        </div>
+
+        <div class="bg-[#1d3447] rounded-2xl p-6 flex flex-col gap-4">
+          <h3 class="font-serif font-bold text-lg leading-snug">Navegar, encontrar, contatar</h3>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">Feed de vagas filtrado por pontuação de compatibilidade e localização. Os usuários contatam anunciantes diretamente pela plataforma, sem precisar recorrer ao WhatsApp ou Facebook.</p>
+          <div class="bg-[#152b3e] rounded-lg p-3 mt-auto">
+            <p class="text-[#8aafc8] text-xs leading-relaxed">Substitui o fluxo pelos grupos do Facebook</p>
+          </div>
+        </div>
+
+        <div class="bg-[#1d3447] rounded-2xl p-6 flex flex-col gap-4">
+          <h3 class="font-serif font-bold text-lg leading-snug">Quiz pós-contato e fechamento</h3>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">Após o contato, os usuários são solicitados a completar ou atualizar o quiz, melhorando o match para o anfitrião também. Quando as duas partes concordam, a vaga é fechada e sinalizada claramente para os demais.</p>
+          <div class="bg-[#152b3e] rounded-lg p-3 mt-auto">
+            <p class="text-[#8aafc8] text-xs leading-relaxed">Resolve o problema "ainda tem vaga?"</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SECTION 12: WIREFRAMES -->
+    <div class="mt-24 flex flex-col gap-16">
+
+      <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Wireframes</span>
+
+      <div class="flex flex-col gap-4 max-w-3xl">
+        <h2 class="font-serif font-bold text-3xl lg:text-4xl leading-snug">
+          Da pesquisa à realidade: o produto que surgiu.
+        </h2>
+        <p class="text-[#c8d8e8] text-base leading-relaxed">
+          22 telas em 4 fluxos, cada uma rastreável a uma descoberta específica de pesquisa. Do splash ao quiz de compatibilidade até o feed de matches, cada decisão de design tem uma razão.
+        </p>
+      </div>
+
+      <!-- Flow 01: Cadastro e Onboarding -->
+      <div class="flex flex-col gap-6">
+        <div class="flex flex-col gap-2">
+          <span class="font-serif font-bold text-xl">01 — Cadastro e Onboarding</span>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed max-w-2xl">
+            A primeira impressão importa. O splash e o carrossel de onboarding estabelecem a promessa do produto antes de qualquer compromisso. O cadastro é dividido em etapas de uma pergunta por vez, reduzindo diretamente o atrito que os usuários descreveram ao se registrar em plataformas desconhecidas.
+          </p>
+        </div>
+        <div class="overflow-x-auto pb-2">
+          <div class="flex gap-3" style="width: max-content">
+            <img src="assets/screens/sign%20up/sign%20up%2001.jpg" alt="Cadastro - tela 1" class="h-[420px] w-auto rounded-xl" />
+            <img src="assets/screens/sign%20up/sign%20up%2002.jpg" alt="Cadastro - tela 2" class="h-[420px] w-auto rounded-xl" />
+            <img src="assets/screens/sign%20up/sign%20up%2003.jpg" alt="Cadastro - tela 3" class="h-[420px] w-auto rounded-xl" />
+            <img src="assets/screens/sign%20up/sign%20up%2004.jpg" alt="Cadastro - tela 4" class="h-[420px] w-auto rounded-xl" />
+            <img src="assets/screens/sign%20up/sign%20up%2005.jpg" alt="Cadastro - tela 5" class="h-[420px] w-auto rounded-xl" />
+            <img src="assets/screens/sign%20up/sign%20up%2006.jpg" alt="Cadastro - tela 6" class="h-[420px] w-auto rounded-xl" />
+            <img src="assets/screens/sign%20up/sign%20up%2007.jpg" alt="Cadastro - tela 7" class="h-[420px] w-auto rounded-xl" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Flow 02: Quiz de Compatibilidade -->
+      <div class="flex flex-col gap-6">
+        <div class="flex flex-col gap-2">
+          <span class="font-serif font-bold text-xl">02 — Quiz de Compatibilidade</span>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed max-w-2xl">
+            O centro do produto. Um quiz de 20 perguntas cobrindo sociabilidade, hábitos, higiene e valores. Opcional no cadastro, mas claramente posicionado como a chave para matches melhores. "Responder depois" sempre visível para que o usuário nunca se sinta preso.
+          </p>
+        </div>
+        <div class="overflow-x-auto pb-2">
+          <div class="flex gap-3" style="width: max-content">
+            <img src="assets/screens/compatibility%20quiz/pre%20quiz.jpg" alt="Pré-quiz" class="h-[420px] w-auto rounded-xl" />
+            <img src="assets/screens/compatibility%20quiz/quiz%20sociabilidade%2001.jpg" alt="Quiz - sociabilidade 1" class="h-[420px] w-auto rounded-xl" />
+            <img src="assets/screens/compatibility%20quiz/quiz%20sociabilidade%2002.jpg" alt="Quiz - sociabilidade 2" class="h-[420px] w-auto rounded-xl" />
+            <img src="assets/screens/compatibility%20quiz/quiz%20sociabilidade%2003.jpg" alt="Quiz - sociabilidade 3" class="h-[420px] w-auto rounded-xl" />
+            <img src="assets/screens/compatibility%20quiz/quiz%20sociabilidade%2004.jpg" alt="Quiz - sociabilidade 4" class="h-[420px] w-auto rounded-xl" />
+            <img src="assets/screens/compatibility%20quiz/quiz%20sociabilidade%2005.jpg" alt="Quiz - sociabilidade 5" class="h-[420px] w-auto rounded-xl" />
+            <img src="assets/screens/compatibility%20quiz/quiz%20sociabilidade%2006.jpg" alt="Quiz - sociabilidade 6" class="h-[420px] w-auto rounded-xl" />
+            <img src="assets/screens/compatibility%20quiz/finalizacao%20do%20quiz.jpg" alt="Finalização do quiz" class="h-[420px] w-auto rounded-xl" />
+            <img src="assets/screens/compatibility%20quiz/resultados%20quiz.jpg" alt="Resultados do quiz" class="h-[420px] w-auto rounded-xl" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Flow 03: Explorar, Match & Mensagem -->
+      <div class="flex flex-col gap-6">
+        <div class="flex flex-col gap-2">
+          <span class="font-serif font-bold text-xl">03 — Explorar, Match &amp; Mensagem</span>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed max-w-2xl">
+            A experiência principal. Os usuários exploram por cidade, navegam por listagens ordenadas por pontuação de compatibilidade, alternam entre matches de quarto e de pessoa, e conversam diretamente, tudo dentro de uma plataforma. Sem grupos de WhatsApp. Sem anúncios no Facebook sem resposta.
+          </p>
+        </div>
+        <div class="overflow-x-auto pb-2">
+          <div class="flex gap-3" style="width: max-content">
+            <img src="assets/screens/tabs%20view/menu%20tabs%2001.jpg" alt="Explorar - tela 1" class="h-[420px] w-auto rounded-xl" />
+            <img src="assets/screens/tabs%20view/menu%20tabs%2004.jpg" alt="Explorar - tela 4" class="h-[420px] w-auto rounded-xl" />
+            <img src="assets/screens/tabs%20view/menu%20tabs%2005.jpg" alt="Explorar - tela 5" class="h-[420px] w-auto rounded-xl" />
+            <img src="assets/screens/tabs%20view/menu%20tabs%2006.jpg" alt="Explorar - tela 6" class="h-[420px] w-auto rounded-xl" />
+            <img src="assets/screens/tabs%20view/menu%20tabs%2007.jpg" alt="Explorar - tela 7" class="h-[420px] w-auto rounded-xl" />
+            <img src="assets/screens/tabs%20view/menu%20tabs%2008.jpg" alt="Explorar - tela 8" class="h-[420px] w-auto rounded-xl" />
+            <img src="assets/screens/tabs%20view/menu%20tabs%2009.jpg" alt="Explorar - tela 9" class="h-[420px] w-auto rounded-xl" />
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 callout cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-6 border-t border-white/10">
+
+        <div class="flex flex-col gap-3">
+          <h3 class="font-serif font-bold text-lg leading-snug">Badges de compatibilidade</h3>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">O badge de compatibilidade aparece em cada listagem e mensagem, o sinal principal da plataforma. Aborda diretamente a maior dificuldade encontrada na pesquisa: encontrar pessoas compatíveis para morar junto.</p>
+          <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium mt-auto">Ligado a: descobertas de entrevistas</span>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <h3 class="font-serif font-bold text-lg leading-snug">Matches: Quartos + Pessoas</h3>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">A aba dual de Matches serve os dois lados do marketplace ao mesmo tempo: quem busca quarto e quem oferece espaço. Cada listagem exibe a compatibilidade com o perfil do usuário.</p>
+          <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium mt-auto">Ligado a: personas — Marta &amp; Vinícius</span>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <h3 class="font-serif font-bold text-lg leading-snug">Mensagens nativas</h3>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">Toda a comunicação acontece dentro da plataforma. A caixa de entrada resolve a comunicação fragmentada que cada participante descreveu, espalhada por WhatsApp, Facebook e ligações.</p>
+          <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium mt-auto">Ligado a: pontos de contato da jornada</span>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <h3 class="font-serif font-bold text-lg leading-snug">Uma pergunta por vez</h3>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">Cada etapa do cadastro é um campo único em foco. Essa divulgação progressiva minimiza a carga cognitiva e reflete a resposta direta às jornadas do Dia 1 mapeadas na pesquisa.</p>
+          <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium mt-auto">Ligado a: jornada do usuário — dia 1</span>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <h3 class="font-serif font-bold text-lg leading-snug">Quiz como desbloqueio opcional</h3>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">"Responder depois" sempre visível. O quiz respeita a autonomia do usuário, um insight da pesquisa que aponta a motivação intrínseca como mais eficaz do que a compliance forçada.</p>
+          <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium mt-auto">Ligado a: ramo de fluxo do usuário</span>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <h3 class="font-serif font-bold text-lg leading-snug">Exploração por cidade</h3>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">A tela inicial começa pelas cidades mais populares: SP, RJ, Florianópolis. Aborda o medo de não conhecer a cidade sem exigir que o usuário se preocupe com pessoas ou lugares específicos desde o início.</p>
+          <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium mt-auto">Ligado a: descobertas de entrevistas</span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SECTION 11: DESIGN DIRECTION -->
+    <div class="mt-24 flex flex-col gap-12">
+
+      <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Direção de design</span>
+
+      <h2 class="font-serif font-bold text-3xl lg:text-4xl leading-snug max-w-2xl">
+        Quatro princípios que guiaram cada decisão de design.
+      </h2>
+
+      <div class="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-10 lg:gap-16 items-start">
+
+        <!-- Left: principles list -->
+        <div class="flex flex-col gap-12">
+
+          <!-- Principle 1 -->
+          <div class="flex flex-col gap-3">
+            <h3 class="font-serif font-bold text-xl leading-snug">Compatibilidade como prioridade</h3>
+            <p class="text-[#c8d8e8] text-base leading-relaxed">
+              Além de anúncios e posts, a solução se concentra no alinhamento de estilo de vida e hábitos, ajudando os usuários a encontrar pessoas com quem realmente podem conviver, não apenas dividir endereço.
+            </p>
+          </div>
+
+          <!-- Principle 2 -->
+          <div class="flex flex-col gap-3">
+            <h3 class="font-serif font-bold text-xl leading-snug">Perfis transparentes de colegas</h3>
+            <p class="text-[#c8d8e8] text-base leading-relaxed">
+              Perfis estruturados capturam os critérios que as pessoas já usam informalmente: horário de dormir, padrões de limpeza, hábitos de trabalho, preferências de visitas e políticas para animais.
+            </p>
+          </div>
+
+          <!-- Principle 3 -->
+          <div class="flex flex-col gap-3">
+            <h3 class="font-serif font-bold text-xl leading-snug">Construtor de acordo de convivência</h3>
+            <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Funcionalidade futura</span>
+            <p class="text-[#c8d8e8] text-base leading-relaxed">
+              Um fluxo guiado para co-criar regras da casa antes da mudança, abordando diretamente os acordos verbais e reativos que todos os participantes das entrevistas descreveram. Não está na UI atual, mas é um próximo passo claro.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Right: quote card -->
+        <div class="bg-[#1d3447] rounded-xl p-8 flex flex-col gap-5">
+          <h3 class="font-serif font-bold text-xl leading-snug">
+            "Encontre pessoas com quem você possa viver, não só dividir endereço."
+          </h3>
+          <p class="text-[#c8d8e8] text-sm leading-relaxed">
+            A pesquisa deixou uma coisa clara: as dimensões emocionais e sociais da moradia compartilhada são tão importantes quanto as práticas. Cada tela, cada fluxo, cada decisão neste produto existe para reduzir a ansiedade da busca e substituí-la por confiança.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SECTION 13: LEARNINGS -->
+    <div class="mt-24 flex flex-col gap-10">
+
+      <span class="text-[#8aafc8] text-xs uppercase tracking-widest font-medium">Aprendizados</span>
+
+      <h2 class="font-serif font-bold text-3xl lg:text-4xl leading-snug">
+        Três coisas que podemos mencionar.
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Card 01 -->
+        <div class="bg-[#7c3800] rounded-2xl p-8 flex flex-col gap-5">
+          <span class="text-orange-200 text-xs font-semibold tracking-widest">01</span>
+          <h3 class="font-serif font-bold text-xl leading-snug text-white">Sua maior suposição provavelmente está errada</h3>
+          <p class="text-orange-100 text-sm leading-relaxed">Começamos este projeto convictos de que dividir as contas era o principal problema da moradia compartilhada. Foram necessários uma Matriz CSD e 83 respostas de survey para provar o contrário. O problema real sempre foi sobre pessoas: encontrar alguém compatível e conviver bem. Se não tivéssemos validado isso cedo, teríamos construído a coisa errada.</p>
+        </div>
+
+        <!-- Card 02 -->
+        <div class="bg-[#7c3800] rounded-2xl p-8 flex flex-col gap-5">
+          <span class="text-orange-200 text-xs font-semibold tracking-widest">02</span>
+          <h3 class="font-serif font-bold text-xl leading-snug text-white">A camada emocional é o produto</h3>
+          <p class="text-orange-100 text-sm leading-relaxed">Toda entrevista parou de ser sobre funcionalidades e se tornou sobre medo: o medo de escolher a pessoa errada, de conflito, de ficar preso com alguém incompatível numa cidade que você não conhece. Uma plataforma que resolve só a logística erra o ponto. A ansiedade da busca, a desconfiança de estranhos, a necessidade de se sentir seguro em casa — esse não é o contexto. Esse é o briefing.</p>
+        </div>
+
+        <!-- Card 03 -->
+        <div class="bg-[#7c3800] rounded-2xl p-8 flex flex-col gap-5">
+          <span class="text-orange-200 text-xs font-semibold tracking-widest">03</span>
+          <h3 class="font-serif font-bold text-xl leading-snug text-white">Cada método enxerga o que os outros não veem</h3>
+          <p class="text-orange-100 text-sm leading-relaxed">A netnografia nos deu a linguagem que as pessoas realmente usam, não o que diriam numa entrevista. O survey apontou quais dores eram universais e quais eram pessoais. As entrevistas trouxeram as histórias por trás dos números. Nenhum deles sozinho teria revelado o quadro completo. O rigor de misturar métodos não foi overhead — foi o que tornou a direção inegável.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-footer px-6 py-12">
+    <div class="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-[#e5e5e5] text-sm">Todos os direitos reservados. 2026</p>
+      <div class="flex items-center gap-4">
+        <a href="https://linkedin.com/in/iansilvalanni" target="_blank" rel="noopener noreferrer" class="text-[#e5e5e5] hover:text-white transition-colors" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
