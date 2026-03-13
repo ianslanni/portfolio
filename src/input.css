@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #020d19;
+  --color-orange: #f97300;
+  --color-navy-mid: #04182e;
+  --color-navy-light: #1d3447;
+  --color-navy-card: #243d54;
+  --color-footer: #404040;
+
+  --font-serif: "Merriweather Sans", sans-serif;
+  --font-sans: Inter, sans-serif;
+}
+
+body { background-color: #020d19; }

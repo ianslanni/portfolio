@@ -6,32 +6,10 @@
   <meta name="description" content="Portfólio de Ian Silva Lanni, Designer de Produto com cinco anos de experiência. Aberto a oportunidades full-time como Product Designer." />
   <title>Ian Silva Lanni — Product Designer</title>
   <link rel="icon" type="image/jpeg" href="assets/ian-silva-lanni-profile.jpg" />
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            navy: '#020d19',
-            orange: '#f97300',
-            'navy-mid': '#04182e',
-            'navy-light': '#1d3447',
-            footer: '#404040',
-          },
-          fontFamily: {
-            serif: ['"Merriweather Sans"', 'sans-serif'],
-            sans: ['Inter', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
-  <style>
-    body { background-color: #020d19; }
-  </style>
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body class="bg-navy text-white font-sans">
 
@@ -58,11 +36,16 @@
         <!-- Name + photo -->
         <div class="flex items-center gap-6">
           <div class="w-24 h-24 rounded-full overflow-hidden shrink-0 ring-2 ring-white/20">
-            <img
-              src="assets/ian-silva-lanni-profile.jpg"
-              alt="Ian Silva Lanni"
-              class="w-full h-full object-cover"
-            />
+            <picture>
+              <source srcset="assets/ian-silva-lanni-profile.webp" type="image/webp" />
+              <img
+                src="assets/ian-silva-lanni-profile.jpg"
+                alt="Ian Silva Lanni"
+                class="w-full h-full object-cover"
+                width="800"
+                height="800"
+              />
+            </picture>
           </div>
           <h1 class="font-serif font-bold text-4xl md:text-5xl lg:text-6xl leading-tight">Ian Silva Lanni</h1>
         </div>
@@ -77,7 +60,7 @@
 
         <!-- CTAs -->
         <div class="flex flex-wrap gap-4 items-center">
-          <a href="mailto:ianslanni@gmail.com" class="flex items-center gap-3 bg-orange text-white font-semibold text-lg md:text-xl px-8 py-4 rounded-lg hover:bg-orange/90 transition-colors">
+          <a href="mailto:ianslanni@gmail.com" class="flex items-center gap-3 bg-orange text-navy font-semibold text-lg md:text-xl px-8 py-4 rounded-lg hover:bg-orange/90 transition-colors">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
             Entrar em contato
           </a>
@@ -119,11 +102,16 @@
         </div>
         <!-- Image -->
         <a href="estudo-de-caso-moradia-compartilhada.html" target="_self" class="relative w-full lg:w-1/2 aspect-[4/3] rounded-lg overflow-hidden shrink-0 group">
-          <img
-            src="assets/ian-silva-lanni-portfolio-case-housing.jpg"
-            alt="Moradia Compartilhada case study"
-            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-          />
+          <picture>
+            <source srcset="assets/ian-silva-lanni-portfolio-case-housing.webp" type="image/webp" />
+            <img
+              src="assets/ian-silva-lanni-portfolio-case-housing.jpg"
+              alt="Moradia Compartilhada case study"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              width="800"
+              height="600"
+            />
+          </picture>
         </a>
       </article>
 
@@ -154,11 +142,16 @@
         </div>
         <!-- Image -->
         <a href="https://medium.com/@ianslanni/relivery-reduzindo-o-desperd%C3%ADcio-de-alimentos-e-nos-centros-de-distribui%C3%A7%C3%A3o-5fa9630f7edc" target="_blank" rel="noopener noreferrer" class="relative w-full lg:w-1/2 aspect-[4/3] rounded-lg overflow-hidden shrink-0 group">
-          <img
-            src="assets/ian-silva-lanni-portfolio-case-food.jpg"
-            alt="Alimentos e Logística case study"
-            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-          />
+          <picture>
+            <source srcset="assets/ian-silva-lanni-portfolio-case-food.webp" type="image/webp" />
+            <img
+              src="assets/ian-silva-lanni-portfolio-case-food.jpg"
+              alt="Alimentos e Logística case study"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              width="800"
+              height="600"
+            />
+          </picture>
         </a>
       </article>
 

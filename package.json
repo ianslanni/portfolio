@@ -1,0 +1,27 @@
+{
+  "name": "product-designer-portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss -i src/input.css -o assets/styles.css --minify",
+    "watch": "tailwindcss -i src/input.css -o assets/styles.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianslanni/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ianslanni/portfolio/issues"
+  },
+  "homepage": "https://github.com/ianslanni/portfolio#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.1",
+    "sharp": "^0.34.5",
+    "tailwindcss": "^4.2.1"
+  }
+}
