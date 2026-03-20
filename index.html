@@ -21,6 +21,7 @@
           Home
         </a>
       <div class="flex items-center gap-4">
+        <button id="lang-toggle" onclick="toggleLang()" class="border border-white text-white px-3 py-2 rounded-lg hover:bg-white/10 transition-colors text-xs font-semibold tracking-widest" aria-label="Switch language">EN</button>
         <a href="https://linkedin.com/in/iansilvalanni" target="_blank" rel="noopener noreferrer" class="border border-white text-white p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="LinkedIn">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         </a>
@@ -51,7 +52,7 @@
         </div>
 
         <!-- Bio -->
-        <p class="text-[#e5e5e5] text-lg md:text-xl lg:text-2xl leading-relaxed max-w-3xl">
+        <p class="text-[#e5e5e5] text-lg md:text-xl lg:text-2xl leading-relaxed max-w-3xl" data-i18n="bio-pt">
           Designer de Produto por formação e cinco anos de experiência no mercado de marketing.
           Trabalhei remotamente para empresas nos EUA e Brasil. No momento fazendo trabalhos como
           <em>freelancer</em> para clientes no Brasil. Aberto a oportunidades de trabalho full-time
@@ -62,11 +63,11 @@
         <div class="flex flex-wrap gap-4 items-center">
           <a href="mailto:ianslanni@gmail.com" class="flex items-center gap-3 bg-orange text-navy font-semibold text-lg md:text-xl px-8 py-4 rounded-lg hover:bg-orange/90 transition-colors">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            Entrar em contato
+            <span data-i18n="cta-contact">Entrar em contato</span>
           </a>
           <div class="flex items-center gap-2 bg-navy-light text-white text-base px-4 py-2 rounded-full">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-            Florianópolis, SC — Brasil
+            <span data-i18n="location">Florianópolis, SC — Brasil</span>
           </div>
         </div>
 
@@ -82,21 +83,21 @@
       <article class="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
         <!-- Text -->
         <div class="flex flex-col gap-8 lg:w-1/2">
-          <div class="border border-[#e5e5e5] text-[#e5e5e5] text-xs uppercase tracking-widest px-4 py-2 rounded-full w-fit">
+          <div class="border border-[#e5e5e5] text-[#e5e5e5] text-xs uppercase tracking-widest px-4 py-2 rounded-full w-fit" data-i18n="case1-label">
             Estudo de caso — Moradia Compartilhada
           </div>
           <div class="flex flex-col gap-4 text-[#f3f3f3]">
-            <h2 class="font-serif font-bold text-2xl leading-snug">
+            <h2 class="font-serif font-bold text-2xl leading-snug" data-i18n="case1-h2">
               Encontrar um colega de quarto no Brasil geralmente significa postar no Facebook e torcer pelo melhor.
             </h2>
-            <p class="text-lg leading-relaxed">
+            <p class="text-lg leading-relaxed" data-i18n="case1-p">
               O problema nunca foi dividir as contas, mas sim a pessoa certa para morar junto,
               e nenhuma plataforma foi criada para ajudar nisso.
             </p>
           </div>
           <p class="text-[#e5e5e5] text-xs uppercase tracking-widest">Role — UX Designer &amp; Researcher</p>
           <a href="estudo-de-caso-moradia-compartilhada.html" class="flex items-center gap-2 text-orange font-bold text-base hover:gap-3 transition-all" target="_self">
-            VER MAIS
+            <span data-i18n="see-more-1">VER MAIS</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </a>
         </div>
@@ -122,21 +123,21 @@
       <article class="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
         <!-- Text -->
         <div class="flex flex-col gap-8 lg:w-1/2">
-          <div class="border border-[#e5e5e5] text-[#e5e5e5] text-xs uppercase tracking-widest px-4 py-2 rounded-full w-fit">
+          <div class="border border-[#e5e5e5] text-[#e5e5e5] text-xs uppercase tracking-widest px-4 py-2 rounded-full w-fit" data-i18n="case2-label">
             Estudo de caso — Alimentos &amp; Logística
           </div>
           <div class="flex flex-col gap-4 text-[#f3f3f3]">
-            <h2 class="font-serif font-bold text-2xl leading-snug">
+            <h2 class="font-serif font-bold text-2xl leading-snug" data-i18n="case2-h2">
               O que aprendemos tentando resolver o desperdício de alimentos com design
             </h2>
-            <p class="text-lg leading-relaxed">
+            <p class="text-lg leading-relaxed" data-i18n="case2-p">
               Como nossa equipe usou UX Design para entender os desafios dos centros de distribuição,
               e o que fizemos quando a pesquisa contrariou tudo o que achávamos saber.
             </p>
           </div>
           <p class="text-[#e5e5e5] text-xs uppercase tracking-widest">Role — UX Designer &amp; Researcher</p>
           <a href="https://medium.com/@ianslanni/relivery-reduzindo-o-desperd%C3%ADcio-de-alimentos-e-nos-centros-de-distribui%C3%A7%C3%A3o-5fa9630f7edc" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-orange font-bold text-base hover:gap-3 transition-all">
-            VER MAIS
+            <span data-i18n="see-more-2">VER MAIS</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </a>
         </div>
@@ -161,7 +162,7 @@
   <!-- FOOTER -->
   <footer class="bg-footer px-6 py-12">
     <div class="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-      <p class="text-[#e5e5e5] text-sm">Todos os direitos reservados. 2026</p>
+      <p class="text-[#e5e5e5] text-sm" data-i18n="footer-rights">Todos os direitos reservados. 2026</p>
       <div class="flex items-center gap-4">
         <a href="https://linkedin.com/in/iansilvalanni" target="_blank" rel="noopener noreferrer" class="text-[#e5e5e5] hover:text-white transition-colors" aria-label="LinkedIn">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
@@ -170,5 +171,39 @@
     </div>
   </footer>
 
+
+  <script>
+    window.__translations = {
+      pt: {
+        'bio-pt':        'Designer de Produto por formação e cinco anos de experiência no mercado de marketing. Trabalhei remotamente para empresas nos EUA e Brasil. No momento fazendo trabalhos como <em>freelancer</em> para clientes no Brasil. Aberto a oportunidades de trabalho full-time como Product Designer.',
+        'cta-contact':   'Entrar em contato',
+        'location':      'Florianópolis, SC — Brasil',
+        'case1-label':   'Estudo de caso — Moradia Compartilhada',
+        'case1-h2':      'Encontrar um colega de quarto no Brasil geralmente significa postar no Facebook e torcer pelo melhor.',
+        'case1-p':       'O problema nunca foi dividir as contas, mas sim a pessoa certa para morar junto, e nenhuma plataforma foi criada para ajudar nisso.',
+        'see-more-1':    'VER MAIS',
+        'case2-label':   'Estudo de caso — Alimentos &amp; Logística',
+        'case2-h2':      'O que aprendemos tentando resolver o desperdício de alimentos com design',
+        'case2-p':       'Como nossa equipe usou UX Design para entender os desafios dos centros de distribuição, e o que fizemos quando a pesquisa contrariou tudo o que achávamos saber.',
+        'see-more-2':    'VER MAIS',
+        'footer-rights': 'Todos os direitos reservados. 2026',
+      },
+      en: {
+        'bio-pt':        'Product Designer by training with five years of experience in the marketing industry. I\'ve worked remotely for companies in the US and Brazil. Currently taking <em>freelance</em> projects for clients in Brazil. Open to full-time opportunities as a Product Designer.',
+        'cta-contact':   'Get in touch',
+        'location':      'Florianópolis, SC — Brazil',
+        'case1-label':   'Case Study — Shared Housing',
+        'case1-h2':      'Finding a roommate in Brazil usually means posting on Facebook and hoping for the best.',
+        'case1-p':       'The problem was never splitting the bills, but finding the right person to live with — and no platform was built to help with that.',
+        'see-more-1':    'SEE MORE',
+        'case2-label':   'Case Study — Food &amp; Logistics',
+        'case2-h2':      'What we learned trying to solve food waste with design',
+        'case2-p':       'How our team used UX Design to understand the challenges of distribution centers, and what we did when research contradicted everything we thought we knew.',
+        'see-more-2':    'SEE MORE',
+        'footer-rights': 'All rights reserved. 2026',
+      }
+    };
+  </script>
+  <script src="assets/i18n.js"></script>
 </body>
 </html>
